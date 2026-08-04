@@ -27,7 +27,10 @@ No framework preset or build command needed (it's a static site).
 
 Some details were inferred from public profiles. Correct in `index.html` if off:
 
-- **Dates**: SILQ "March 2026 → Present" (confirmed), Caterpillar "2023 – 2026" (start year inferred), college "2019 – 2023", social media era "2019 – 2023".
+- **Dates**: the engineering timeline is now confirmed — Zoho internship (Jul 2022),
+  Caterpillar as intern (Jan – Jun 2023), SE1 (Jul 2023 – Apr 2025), SE2
+  (May 2025 – Mar 2026), then SILQ from Mar 2026. College "2019 – 2023" and the
+  social media era "2019 – 2023" are still as originally written.
 - **Burrito live URL**: currently `burrito-finance.vercel.app` (from the repo README).
 - **The city marquee** in the Travel section: swap in places you've actually been.
 - **Board detail**: "6.7 m above MSL" is Chennai's elevation, in the style of a real station board.

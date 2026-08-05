@@ -563,10 +563,12 @@ h3 {
   padding-left: calc(var(--content-pad) + var(--gutter));
 }
 
-.line-section[data-line="blue"] { --line: var(--blue); --line-ink: var(--blue-ink); }
-.line-section[data-line="amber"] { --line: var(--amber); --line-ink: var(--amber-ink); }
-.line-section[data-line="green"] { --line: var(--green); --line-ink: var(--green-ink); }
-.line-section[data-line="magenta"] { --line: var(--magenta); --line-ink: var(--magenta-ink); }
+/* --line-on-dark stays fixed in both themes: the featured panels are always
+   near-black, so the line colour has to clear contrast against that, not paper */
+.line-section[data-line="blue"] { --line: var(--blue); --line-ink: var(--blue-ink); --line-on-dark: #4d9fe6; }
+.line-section[data-line="amber"] { --line: var(--amber); --line-ink: var(--amber-ink); --line-on-dark: #eaa93f; }
+.line-section[data-line="green"] { --line: var(--green); --line-ink: var(--green-ink); --line-on-dark: #2ec27e; }
+.line-section[data-line="magenta"] { --line: var(--magenta); --line-ink: var(--magenta-ink); --line-on-dark: #f45cae; }
 
 /* the route spine: laid track ahead, travelled track behind */
 .rail {
@@ -836,14 +838,14 @@ h3 {
   position: absolute;
   inset: 0 0 auto 0;
   height: 3px;
-  background: var(--amber);
+  background: var(--line-on-dark, var(--amber));
 }
 
 .featured-label {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: var(--amber);
+  color: var(--line-on-dark, var(--amber));
 }
 
 .featured-card h3 {
@@ -905,6 +907,15 @@ h3 {
   line-height: 1;
   color: var(--board);
   font-variant-numeric: tabular-nums;
+}
+
+/* the stack, on the dark panel: quieter than the light-card chips */
+.featured-chips { margin-top: 1.6rem; padding-top: 0; }
+
+.featured-chips li {
+  color: #97a1ac;
+  background: rgba(255, 255, 255, 0.035);
+  border-color: var(--night-edge);
 }
 
 .featured-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.9rem; }

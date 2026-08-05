@@ -1,9 +1,13 @@
 # Portfolio · Srivathsan Venkateswaran
 
 A single-page static portfolio (plain HTML/CSS/JS, no build step) designed as an
-Indian transit network: a station-board hero, a departures-board navigation, and
-four colored "lines": Engineering (blue), Markets (amber), Travel (green), and
-the Story Layer (magenta).
+Indian transit network: a station-board hero, a platform-edge tactile strip, a
+departures-board concourse, and four colored "lines": Engineering (blue),
+Markets (amber), Travel (green), and the Story Layer (magenta).
+
+One route spine runs down the whole page. It changes colour at each interchange,
+fills in behind you as you scroll, and lights up each station marker as you pass
+it. The line ends at a buffer stop in the terminus.
 
 ## Run locally
 
@@ -27,7 +31,7 @@ No framework preset or build command needed (it's a static site).
 
 Some details were inferred from public profiles. Correct in `index.html` if off:
 
-- **Dates**: the engineering timeline is now confirmed — Zoho internship (Jul 2022),
+- **Dates**: the engineering timeline is now confirmed: Zoho internship (Jul 2022),
   Caterpillar as intern (Jan – Jun 2023), SE1 (Jul 2023 – Apr 2025), SE2
   (May 2025 – Mar 2026), then SILQ from Mar 2026. College "2019 – 2023" and the
   social media era "2019 – 2023" are still as originally written.

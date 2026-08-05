@@ -8,20 +8,25 @@
   <meta property="og:title" content="Srivathsan Venkateswaran" />
   <meta property="og:description" content="Engineer · Investor · Traveller · Storyteller. All lines, one network." />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='10' width='60' height='44' rx='8' fill='%23F2C230' stroke='%2315191D' stroke-width='4'/%3E%3Ctext x='32' y='44' font-family='Arial Black, sans-serif' font-size='30' font-weight='900' text-anchor='middle' fill='%2315191D'%3ESV%3C/text%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#eceae4" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='10' width='60' height='44' rx='8' fill='%23F5C518' stroke='%2315171A' stroke-width='4'/%3E%3Ctext x='32' y='44' font-family='Arial Black, sans-serif' font-size='30' font-weight='900' text-anchor='middle' fill='%2315171A'%3ESV%3C/text%3E%3C/svg%3E" />
   <script>
     // apply saved theme before first paint to avoid a flash
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "light" || savedTheme === "dark") {
       document.documentElement.dataset.theme = savedTheme;
     }
+    // scroll reveals only hide content when there is JS around to reveal it again
+    document.documentElement.classList.add("js");
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Tamil:wght@700&family=Noto+Sans+Devanagari:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=IBM+Plex+Sans:wght@400;500;600&family=Martian+Mono:wdth,wght@75..112.5,300..700&family=Noto+Sans+Devanagari:wght@700&family=Noto+Sans+Tamil:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <a class="skip-link" href="#top">Skip to content</a>
 
   <header class="site-header">
     <a class="roundel" href="#top" aria-label="Back to top">
@@ -42,7 +47,7 @@
 
     <!-- ======================= HERO ======================= -->
     <section class="hero">
-      <p class="eyebrow load-reveal">Chennai, India · All lines operational</p>
+      <p class="eyebrow load-reveal">Chennai · 13.08° N, 80.27° E · All lines operational</p>
 
       <div class="signpost load-reveal" role="img" aria-label="Indian Railways style station name board reading Srivathsan Venkateswaran, software engineer, Chennai">
         <div class="board">
@@ -50,7 +55,7 @@
           <span class="board-hindi" lang="hi">श्रीवत्सन</span>
           <span class="board-name">Srivathsan</span>
           <span class="board-surname">Venkateswaran</span>
-          <span class="board-meta">Software Engineer · 6.7 m above MSL · Chennai</span>
+          <span class="board-meta">Software Engineer · Elevation 6.7 m · Chennai</span>
         </div>
         <div class="board-legs" aria-hidden="true"><span></span><span></span></div>
       </div>
@@ -64,50 +69,61 @@
       </p>
 
       <ul class="hero-links load-reveal">
-        <li><a href="https://github.com/srivathsanvenkateswaran" target="_blank" rel="noopener">GitHub ↗</a></li>
-        <li><a href="https://www.linkedin.com/in/srivathsanvenkateswaran/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-        <li><a href="https://twitter.com/SrivathsanVKV" target="_blank" rel="noopener">Twitter ↗</a></li>
-        <li><a href="https://srivathsan.hashnode.dev" target="_blank" rel="noopener">Blog ↗</a></li>
+        <li><a href="https://github.com/srivathsanvenkateswaran" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/srivathsanvenkateswaran/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://srivathsan.hashnode.dev" target="_blank" rel="noopener">Blog</a></li>
         <li><a href="mailto:srivathsanvenkateswaran@gmail.com">Email</a></li>
       </ul>
+    </section>
 
-      <!-- Departures board doubles as navigation -->
-      <div class="departures load-reveal" aria-label="Departures board: jump to a section">
+    <!-- platform-edge tactile paving: hero ends, concourse begins -->
+    <div class="tactile" aria-hidden="true"></div>
+
+    <!-- ======================= DEPARTURES ======================= -->
+    <section class="board-band" aria-label="Departures board: jump to a section">
+      <div class="departures observe">
         <div class="departures-head">
           <span class="departures-title">Departures</span>
-          <span class="departures-clock" id="ist-clock" aria-hidden="true">--:--:-- IST</span>
+          <span class="departures-clock" id="ist-clock">--:--:-- IST</span>
         </div>
-        <div class="departures-rows" role="list">
-          <button class="dep-row" data-target="#engineering" data-line="blue" role="listitem">
+        <div class="departures-cols" aria-hidden="true">
+          <span>Line</span><span>Destination</span><span>Service since</span><span>Status</span>
+        </div>
+        <div class="departures-rows">
+          <button class="dep-row" data-target="#engineering" data-line="blue">
             <span class="dep-line"><span class="dot" aria-hidden="true"></span>Blue</span>
             <span class="dep-dest">Engineering</span>
-            <span class="dep-since">Since 2022</span>
+            <span class="dep-since">2022</span>
             <span class="dep-status"><span class="pulse" aria-hidden="true"></span>Running</span>
           </button>
-          <button class="dep-row" data-target="#markets" data-line="amber" role="listitem">
+          <button class="dep-row" data-target="#markets" data-line="amber">
             <span class="dep-line"><span class="dot" aria-hidden="true"></span>Amber</span>
             <span class="dep-dest">Markets</span>
-            <span class="dep-since">Since 2019</span>
+            <span class="dep-since">2019</span>
             <span class="dep-status"><span class="pulse" aria-hidden="true"></span>Compounding</span>
           </button>
-          <button class="dep-row" data-target="#travel" data-line="green" role="listitem">
+          <button class="dep-row" data-target="#travel" data-line="green">
             <span class="dep-line"><span class="dot" aria-hidden="true"></span>Green</span>
             <span class="dep-dest">Across India</span>
             <span class="dep-since">Always</span>
             <span class="dep-status"><span class="pulse" aria-hidden="true"></span>Roaming</span>
           </button>
-          <button class="dep-row" data-target="#story" data-line="magenta" role="listitem">
+          <button class="dep-row" data-target="#story" data-line="magenta">
             <span class="dep-line"><span class="dot" aria-hidden="true"></span>Magenta</span>
             <span class="dep-dest">The Story Layer</span>
             <span class="dep-since">2019 – 23</span>
-            <span class="dep-status">Off peak</span>
+            <span class="dep-status dep-status-off">Off peak</span>
           </button>
         </div>
       </div>
     </section>
 
+    <div class="network">
+
     <!-- ======================= BLUE LINE · ENGINEERING ======================= -->
     <section class="line-section" id="engineering" data-line="blue">
+      <span class="rail" aria-hidden="true"><i></i></span>
+
       <header class="station-head observe">
         <span class="station-marker" aria-hidden="true"></span>
         <p class="line-label">Blue Line</p>
@@ -118,28 +134,34 @@
         </p>
       </header>
 
-      <div class="timeline observe">
+      <div class="route observe">
         <article class="stop">
-          <h3>Software Development Engineer 2 · SILQ</h3>
+          <span class="stop-tick" aria-hidden="true"></span>
+          <div class="stop-bar">
+            <h3>Software Development Engineer 2 · SILQ</h3>
+            <span class="stop-flag">Current service</span>
+          </div>
           <p class="stop-when">March 2026 → Present</p>
-          <p>
+          <p class="stop-text">
             Building technology that simplifies global trade: next-generation tooling
             for factories and supply chains, making quality on the ground measurable
             and comparable.
           </p>
         </article>
         <article class="stop">
-          <h3>Software Engineer 2 · Caterpillar Inc.</h3>
+          <span class="stop-tick" aria-hidden="true"></span>
+          <div class="stop-bar"><h3>Software Engineer 2 · Caterpillar Inc.</h3></div>
           <p class="stop-when">May 2025 – March 2026 · Chennai</p>
-          <p>
+          <p class="stop-text">
             Senior scope on the same search platform, and the last stop on a run that
             started as a six-month internship three years earlier.
           </p>
         </article>
         <article class="stop">
-          <h3>Software Engineer 1 · Caterpillar Inc.</h3>
+          <span class="stop-tick" aria-hidden="true"></span>
+          <div class="stop-bar"><h3>Software Engineer 1 · Caterpillar Inc.</h3></div>
           <p class="stop-when">July 2023 – April 2025 · Chennai</p>
-          <p>
+          <p class="stop-text">
             Enterprise search for the company that builds the machines that build the
             world. Worked on the search platform: Apache Solr, Lucidworks Fusion, and
             NLP/ML pipelines that helped thousands of engineers and dealers find the
@@ -147,25 +169,28 @@
           </p>
         </article>
         <article class="stop">
-          <h3>Software Engineering Intern · Caterpillar Inc.</h3>
+          <span class="stop-tick" aria-hidden="true"></span>
+          <div class="stop-bar"><h3>Software Engineering Intern · Caterpillar Inc.</h3></div>
           <p class="stop-when">January 2023 – June 2023 · Chennai</p>
-          <p>
+          <p class="stop-text">
             Six months on the search platform team, overlapping the last semester of
             college. It turned into the next three years.
           </p>
         </article>
         <article class="stop">
-          <h3>Intern · Zoho Corporation</h3>
+          <span class="stop-tick" aria-hidden="true"></span>
+          <div class="stop-bar"><h3>Intern · Zoho Corporation</h3></div>
           <p class="stop-when">July 2022 · Chennai</p>
-          <p>
-            First stop on the line — a summer inside one of the few Indian companies
+          <p class="stop-text">
+            First stop on the line: a summer inside one of the few Indian companies
             that builds its whole stack itself.
           </p>
         </article>
         <article class="stop">
-          <h3>B.E. · Thiagarajar College of Engineering</h3>
+          <span class="stop-tick stop-tick-origin" aria-hidden="true"></span>
+          <div class="stop-bar"><h3>B.E. · Thiagarajar College of Engineering</h3></div>
           <p class="stop-when">2019 – 2023 · Madurai</p>
-          <p>
+          <p class="stop-text">
             Where most of the 40 public repos began: Android apps, Discord bots, scrapers,
             and a helpline IVRS for people without smartphones.
           </p>
@@ -205,8 +230,10 @@
 
     <!-- ======================= AMBER LINE · MARKETS ======================= -->
     <section class="line-section" id="markets" data-line="amber">
+      <span class="rail" aria-hidden="true"><i></i></span>
+
       <header class="station-head observe">
-        <span class="station-marker" aria-hidden="true"></span>
+        <span class="station-marker station-marker-interchange" aria-hidden="true"></span>
         <p class="line-label">Amber Line</p>
         <h2>Markets</h2>
         <p class="section-lede">
@@ -216,18 +243,18 @@
       </header>
 
       <article class="featured-card observe">
-        <p class="featured-label">Featured · burrito-finance.vercel.app</p>
+        <p class="featured-label">Featured service · burrito-finance.vercel.app</p>
         <h3><a href="https://github.com/srivathsanvenkateswaran/Burrito" target="_blank" rel="noopener">Burrito: every market, one tortilla</a></h3>
-        <p>
+        <p class="featured-text">
           A self-updating quantitative market-analysis site: crypto risk, cycles, on-chain,
           breadth, derivatives, and US macro. A personal clone of the paid analytics
           platforms, built solo on entirely free data.
         </p>
         <ul class="featured-stats">
-          <li><strong>98</strong> charts</li>
-          <li><strong>27</strong> assets + macro</li>
-          <li><strong>$0</strong>/month to run</li>
-          <li><strong>Daily</strong> recompute</li>
+          <li><span>Charts</span><strong>98</strong></li>
+          <li><span>Assets + macro</span><strong>27</strong></li>
+          <li><span>Cost to run</span><strong>$0</strong></li>
+          <li><span>Recompute</span><strong>Daily</strong></li>
         </ul>
         <p class="featured-links">
           <a href="https://burrito-finance.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
@@ -257,8 +284,10 @@
 
     <!-- ======================= GREEN LINE · TRAVEL ======================= -->
     <section class="line-section" id="travel" data-line="green">
+      <span class="rail" aria-hidden="true"><i></i></span>
+
       <header class="station-head observe">
-        <span class="station-marker" aria-hidden="true"></span>
+        <span class="station-marker station-marker-interchange" aria-hidden="true"></span>
         <p class="line-label">Green Line</p>
         <h2>Across India</h2>
         <p class="section-lede">
@@ -299,8 +328,10 @@
 
     <!-- ======================= MAGENTA LINE · STORY ======================= -->
     <section class="line-section" id="story" data-line="magenta">
+      <span class="rail" aria-hidden="true"><i></i></span>
+
       <header class="station-head observe">
-        <span class="station-marker" aria-hidden="true"></span>
+        <span class="station-marker station-marker-interchange" aria-hidden="true"></span>
         <p class="line-label">Magenta Line</p>
         <h2>The Story Layer</h2>
         <p class="section-lede">
@@ -310,19 +341,21 @@
         </p>
       </header>
 
-      <div class="story-grid observe">
+      <div class="route observe">
         <article class="stop">
-          <h3>Social Media Manager</h3>
+          <span class="stop-tick" aria-hidden="true"></span>
+          <div class="stop-bar"><h3>Social Media Manager</h3></div>
           <p class="stop-when">2019 – 2023 · Freelance &amp; part-time</p>
-          <p>
+          <p class="stop-text">
             Ran strategy, design and content calendars for pages and brands, learning
             audience-building the hands-on way one post at a time.
           </p>
         </article>
         <article class="stop">
-          <h3>Where it shows up now</h3>
+          <span class="stop-tick" aria-hidden="true"></span>
+          <div class="stop-bar"><h3>Where it shows up now</h3></div>
           <p class="stop-when">Every project above</p>
-          <p>
+          <p class="stop-text">
             The media instinct never left: READMEs that read like launch pages, a blog on
             <a href="https://srivathsan.hashnode.dev" target="_blank" rel="noopener">Hashnode</a>,
             and Burrito shipped with its own launch film, written as HTML compositions and
@@ -356,8 +389,11 @@
       </div>
     </section>
 
+    </div><!-- /.network -->
+
     <!-- ======================= TERMINUS · CONTACT ======================= -->
     <section class="terminus" id="contact">
+      <div class="buffer" aria-hidden="true"><span></span><span></span></div>
       <p class="line-label observe">Terminus · All lines</p>
       <h2 class="observe">End of the line</h2>
       <p class="terminus-lede observe">
@@ -370,8 +406,7 @@
       <ul class="footer-links observe">
         <li><a href="https://github.com/srivathsanvenkateswaran" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/srivathsanvenkateswaran/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://twitter.com/SrivathsanVKV" target="_blank" rel="noopener">Twitter</a></li>
-        <li><a href="https://www.instagram.com/srivathsan___" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.instagram.com/_vathsan" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="https://srivathsan.hashnode.dev" target="_blank" rel="noopener">Blog</a></li>
       </ul>
       <p class="colophon observe">

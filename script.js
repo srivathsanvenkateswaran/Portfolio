@@ -1,3 +1,5 @@
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
 // Load-in reveal for hero elements
 document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(() => {
@@ -42,6 +44,50 @@ if (clock) {
   setInterval(tick, 1000);
 }
 
+/* ------------------------------------------------------------------
+   The route spine. Track behind you fills in with the line colour and
+   each station lights up as the train passes it — "you are here",
+   drawn as a network diagram rather than a progress bar.
+   ------------------------------------------------------------------ */
+const rails = [...document.querySelectorAll(".line-section")].map((section) => ({
+  section,
+  fill: section.querySelector(".rail i"),
+}));
+const stations = [...document.querySelectorAll(".station-marker, .stop-tick")];
+
+const clamp01 = (n) => (n < 0 ? 0 : n > 1 ? 1 : n);
+
+function drawRoute() {
+  const here = window.innerHeight * 0.5;
+
+  rails.forEach(({ section, fill }) => {
+    if (!fill) return;
+    const box = section.getBoundingClientRect();
+    fill.style.setProperty("--travel", clamp01((here - box.top) / box.height).toFixed(4));
+  });
+
+  stations.forEach((station) => {
+    station.classList.toggle("passed", station.getBoundingClientRect().top < here);
+  });
+}
+
+let queued = false;
+function scheduleDraw() {
+  if (queued) return;
+  queued = true;
+  requestAnimationFrame(() => { queued = false; drawRoute(); });
+}
+
+if (reduceMotion.matches) {
+  // Show the whole route at once instead of animating a train along it
+  rails.forEach(({ fill }) => fill && fill.style.setProperty("--travel", "1"));
+  stations.forEach((station) => station.classList.add("passed"));
+} else if (rails.length) {
+  drawRoute();
+  addEventListener("scroll", scheduleDraw, { passive: true });
+  addEventListener("resize", scheduleDraw);
+}
+
 // Highlight the nav link for the section in view
 const navLinks = [...document.querySelectorAll(".line-nav a[data-line]")];
 const sections = navLinks
@@ -52,8 +98,9 @@ const navObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       const link = navLinks.find((a) => a.getAttribute("href") === `#${entry.target.id}`);
-      if (link) link.toggleAttribute("aria-current", entry.isIntersecting);
-      if (link && entry.isIntersecting) link.setAttribute("aria-current", "true");
+      if (!link) return;
+      if (entry.isIntersecting) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
     });
   },
   { rootMargin: "-30% 0px -55% 0px" }

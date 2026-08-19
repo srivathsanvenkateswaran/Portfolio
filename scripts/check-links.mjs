@@ -32,6 +32,32 @@ const india = sandbox.window.INDIA;
 const problems = [];
 const fail = (m) => problems.push(m);
 
+/**
+ * Hosts confirmed to serve HIS work, checked against `vercel project ls` and by
+ * reading each page's title.
+ *
+ * This list exists because a 200 proves a page is there, not that it is his.
+ * Three links passed the reachability check while pointing at strangers'
+ * projects: jcomm.vercel.app serves an unrelated "J-COMM", misal.vercel.app
+ * serves something called "Covid ID", and travelport.vercel.app is a Pages
+ * Router app that is not in his Vercel account at all. Adding a host here is a
+ * deliberate act: confirm the deployment is his before you do it.
+ */
+const OWNED = new Set([
+  "getsquadfit.com",
+  "vyasadithya.com",
+  "mastersmentor.srivathsanvenkateswaran.workers.dev",
+  "tarvo-five.vercel.app",
+  "jcomm-one.vercel.app",
+  "varalakshmi-tiffins.vercel.app",
+  "one-rail.vercel.app",
+  "burrito-finance.vercel.app",
+  "jimvathsan.vercel.app",
+]);
+
+/* Third-party profiles, which are meant to point away from him. */
+const OFFSITE = new Set(["github.com", "www.linkedin.com", "srivathsan.hashnode.dev"]);
+
 /* ---------- structure ---------- */
 const REQUIRED = ["id", "line", "x", "y", "name", "status", "solves", "what"];
 const STATUSES = new Set(["running", "live", "private", "archive"]);
@@ -107,6 +133,12 @@ if (!offline) {
   for (const s of net.stations) {
     for (const l of s.links || []) {
       if (!l.href.startsWith("http")) continue;
+      const host = new URL(l.href).hostname;
+      if (!OWNED.has(host)) {
+        fail(`${s.name}: ${host} is not on the confirmed-owned list. A 200 does ` +
+             `not mean the deployment is his. Verify it, then add it to OWNED.`);
+        continue;
+      }
       checks.push(
         head(l.href).then((code) => {
           if (code !== 200) fail(`${s.name}: ${l.href} returned ${code || "no response"}`);
@@ -123,6 +155,8 @@ if (!offline) {
   }
   for (const l of net.links) {
     if (l.href.startsWith("http")) {
+      const host = new URL(l.href).hostname;
+      if (!OFFSITE.has(host)) fail(`profile link points at unexpected host ${host}`);
       checks.push(
         head(l.href).then((code) => {
           // Hashnode answers 403 and LinkedIn answers 999 to unattended

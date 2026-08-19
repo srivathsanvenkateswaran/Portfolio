@@ -1,7 +1,7 @@
 # Portfolio rebuild: the network of shipped work
 
 **Date:** 2026-08-18
-**Status:** design, awaiting review
+**Status:** built and deployed to `/redesign`
 **Supersedes:** the current single-page site at `/` (July 2026, redesigned 5 Aug 2026)
 
 ## 1. Why
@@ -137,8 +137,8 @@ line rests on, and it is exact.
 | **Masters Mentor** | RUNNING | site for an admissions consultancy: packages, case studies, free profile-evaluation tool. Link the Workers URL. |
 | **Vyas Adithya** | RUNNING | personal site for a mentor, live on the custom domain `vyasadithya.com`. |
 | **Jelfort** | PRIVATE BUILD | voice agent that answers a clinic or salon phone, holds a conversation, books the slot. Latency is the stated engineering bet. Runs locally in two minutes with no API key. |
-| **Tarvo** | PRIVATE BUILD | apartment-block maintenance and book-keeping ledger. Drizzle, Neon, PGlite locally, Better Auth. |
-| **JComm** | LIVE | resellable single-store jersey e-commerce template: one config file per retailer, every external service optional with local fallbacks so the whole store runs with zero external accounts. |
+| **Tarvo** | LIVE | deployed at `tarvo-five.vercel.app`. Apartment-block maintenance and book-keeping ledger. Drizzle, Neon, PGlite locally, Better Auth. |
+| **JComm** | LIVE | at `jcomm-one.vercel.app`, not `jcomm.vercel.app`. Resellable single-store jersey e-commerce template: one config file per retailer, every external service optional with local fallbacks so the whole store runs with zero external accounts. |
 | **Darshini template** | LIVE | complete small-restaurant site, dependency-free static HTML/CSS/JS, built as a speculative POC and cold-pitched. **Described as a template, never as client work.** Link to the live URL is approved. |
 
 ### Green line: transit and maps (4)
@@ -146,7 +146,7 @@ line rests on, and it is exact.
 | Station | Status | Source of substance |
 |---|---|---|
 | **Tatak** | PRIVATE BUILD | multi-modal Bengaluru journey planner across BMTC and Namma Metro with walking legs, priced per leg in integer paise, ranked FASTEST / CHEAPEST / MINIMUM_TRANSITS, Kannada station names. ~9,100-stop graph, 34,000+ walking transfers, 193 MB GTFS parsed in 4.8 s, warm query ~0.96 s. Use Tatak's own measured numbers, including that it corrected its earlier inflated ones. |
-| **TravelPort** | LIVE | the pipeline behind the travel map below: hand-written notes to structured JSON, city derivation, checksums, confidence scores. |
+| **TravelPort** | PRIVATE BUILD | never deployed; the atlas on this page is its only published output. The pipeline behind the travel map below: hand-written notes to structured JSON, city derivation, checksums, confidence scores. |
 | **OneRail** | LIVE | public repo, live URL. |
 | **OneMetro** | ARCHIVE | public repo, 6 stars, Android, no deploy. |
 
@@ -353,6 +353,28 @@ bug was caught in the same pass: per-city day counts initially credited every
 city in a trip with the trip's whole length, which put Chennai at 175 days. Days
 are now counted only from the dates a city actually appears on, giving Chennai 63
 days across 22 trips.
+
+## 17b. Link ownership, found at deploy time
+
+Cross-checking every link against `vercel project ls` caught three that returned
+200 while belonging to other people, and one project that was live after all:
+
+- **`jcomm.vercel.app` is not his.** It serves an unrelated project titled
+  "J-COMM". His is **`jcomm-one.vercel.app`** ("Kickoff Kits").
+- **`misal.vercel.app` is not his.** It serves something called "Covid ID".
+  Misal is a desktop app and has no deployment; it links its public repo instead.
+- **`travelport.vercel.app` is not his.** A Pages Router app absent from his
+  Vercel account. TravelPort was never deployed, so its status drops from LIVE to
+  PRIVATE BUILD and the page stops linking it. The atlas is its published output.
+- **`varalakshmi-tiffins.vercel.app`** (hyphenated) is his; the unhyphenated host
+  is a different site.
+- **Tarvo is deployed** at `tarvo-five.vercel.app`, so it moves from PRIVATE BUILD
+  to LIVE.
+
+`check-links.mjs` now holds an explicit `OWNED` allowlist of hosts confirmed to
+serve his work, and fails on any link to a host not on it. Reachability alone was
+never evidence of authorship, and treating it as such nearly published three
+links to strangers' projects.
 
 ## 18. Open questions
 

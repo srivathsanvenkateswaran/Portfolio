@@ -144,12 +144,12 @@ window.NETWORK = {
     },
     {
       id: "tarvo", line: "red", x: 830, y: 270,
-      name: "Tarvo", status: "private",
+      name: "Tarvo", status: "live",
       solves: "An apartment block's maintenance dues tracked in a notebook.",
       what: "Maintenance and book-keeping ledger for an apartment block, with the " +
             "ledger maths checked by assertions rather than by trust.",
       stack: ["Next.js", "Drizzle", "Neon", "Better Auth", "PGlite", "Vercel Blob"],
-      links: [],
+      links: [{ label: "tarvo-five.vercel.app", href: "https://tarvo-five.vercel.app" }],
       repo: null,
     },
     {
@@ -166,7 +166,7 @@ window.NETWORK = {
         "vars appear, with local fallbacks, so the whole store runs in dev with " +
         "zero external accounts.",
       ],
-      links: [{ label: "jcomm.vercel.app", href: "https://jcomm.vercel.app" }],
+      links: [{ label: "jcomm-one.vercel.app", href: "https://jcomm-one.vercel.app" }],
       repo: null,
     },
     {
@@ -181,7 +181,7 @@ window.NETWORK = {
         "No build step, no framework, no npm dependencies. It opens straight " +
         "from disk and deploys to any static host.",
       ],
-      links: [{ label: "live demo", href: "https://varalakshmitiffins.vercel.app" }],
+      links: [{ label: "live demo", href: "https://varalakshmi-tiffins.vercel.app" }],
       repo: null,
     },
 
@@ -214,7 +214,7 @@ window.NETWORK = {
     },
     {
       id: "travelport", line: "green", x: 240, y: 330,
-      name: "TravelPort", status: "live",
+      name: "TravelPort", status: "private",
       solves: "Years of handwritten trip notes that nobody could query.",
       what: "Parses free-text travel notes into structured JSON: every expense " +
             "typed and priced, its city derived, a confidence score attached, and " +
@@ -222,11 +222,12 @@ window.NETWORK = {
       stack: ["Python", "Next.js", "GeoJSON"],
       notes: [
         "It is the source of the map at the bottom of this page: 45 trips, " +
-        "19 states and union territories, 222 days.",
+        "19 states and union territories, 222 days. That map is the only " +
+        "published output it has.",
         "Where a checksum disagrees with my own arithmetic, the parser flags it " +
         "rather than quietly picking one.",
       ],
-      links: [{ label: "travelport.vercel.app", href: "https://travelport.vercel.app" }],
+      links: [],
       repo: null,
     },
     {

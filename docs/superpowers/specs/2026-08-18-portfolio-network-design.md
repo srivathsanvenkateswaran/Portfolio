@@ -20,7 +20,7 @@ The current site is well made and reads junior anyway. Three reasons, none visua
    SquadFit is what makes the page read like a beginner's.
 
 Meanwhile the strongest asset is unused. TravelPort is not a "travel section", it
-is a dataset: 50 trip files, 45 non-wrapper trips, 21 states and UTs, 45 cities,
+is a dataset: 50 trip files, 45 non-wrapper trips, 19 states and UTs, 43 cities,
 222 distinct days on the road, hand-written notes parsed into structured JSON with
 per-event city derivation, checksums and confidence scores. It proves the travel
 story and data engineering in one object.
@@ -65,7 +65,7 @@ THE NETWORK    interactive SVG, 17 stations, 4 lines   <- the index and centrepi
   AMBER   (3)  money
   MAGENTA (2)  built for me and my friends
 TRUNK LINE     career: TCE -> Zoho -> Caterpillar x3 -> SILQ, plus the social-media era
-THE REAL ONE   India from TravelPort data: 21 states, 45 cities, 222 days
+THE REAL ONE   India from TravelPort data: 19 states, 43 cities, 222 days
 TERMINUS       contact
 ```
 
@@ -179,8 +179,8 @@ linuxVisualSearch, and the rest of the 2020 to 2023 tutorial repos.
 
 Only numbers traceable to his own files. No invented user or revenue counts.
 
-**17 shipped · 4 in real use by someone else · SquadFit v2.70.0 · 21 states and UTs
-· 45 cities · 222 days on the road · 3 languages shipped · 2022 to 2026**
+**17 shipped · 4 in real use by someone else · SquadFit v2.70.0 · 19 states and UTs
+· 43 cities · 222 days on the road · 3 languages shipped · 2022 to 2026**
 
 ## 9. The travel map
 
@@ -194,7 +194,7 @@ tile server and no external request.
 - `TravelPort/site/public/data/cities/india_cities.json` : 417 cities with lat/lng
 - `TravelPort/parsed/*.json` : the 50 trip files
 
-**Render:** the 21 visited states filled in line green, the 45 visited cities as
+**Render:** the 19 visited states filled in line green, the 43 visited cities as
 station dots sized by number of days, trips drawn as connecting runs. A year filter
 across 2022 / 2024 / 2025 / 2026 makes the 25-trip 2025 spike visible. Trip counts
 per year are 1, 7, 25, 12.
@@ -337,6 +337,22 @@ motion, 360 px and 1440 px widths, and the page with JS disabled.
 Per-project case-study pages, a blog index, analytics, a CMS, and any framework
 migration. All were considered and rejected. If case studies are wanted later, they
 are separate static pages and a separate spec.
+
+## 17a. Corrections found while building
+
+The bake script recomputed the travel figures from the parsed trip files rather
+than trusting the counts in this spec's first draft. Two were wrong:
+
+- **19 states and union territories, not 21.** The earlier count included "East
+  India" and "West India", which are trip *groupings* in the manifest, not places.
+- **43 cities, not 45.** Bangalore/Bengaluru, Baroda/Vadodara and Kochi/Ernakulam
+  were each being counted twice under the different spellings used in the notes.
+
+Trips (45), days (222) and the per-year curve (1, 7, 25, 12) were right. A third
+bug was caught in the same pass: per-city day counts initially credited every
+city in a trip with the trip's whole length, which put Chennai at 175 days. Days
+are now counted only from the dates a city actually appears on, giving Chennai 63
+days across 22 trips.
 
 ## 18. Open questions
 

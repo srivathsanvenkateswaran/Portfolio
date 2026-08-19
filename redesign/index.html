@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Srivathsan Venkateswaran | The network</title>
+  <meta name="description" content="Seventeen shipped products across four lines: gym software running in real gyms, a Bengaluru journey planner, a voice agent, a quant dashboard, and a map of 222 days on Indian railways." />
+  <meta property="og:title" content="Srivathsan Venkateswaran" />
+  <meta property="og:description" content="Seventeen things shipped. Four of them are running someone else's business." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#eceae4" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='10' width='60' height='44' rx='8' fill='%23F5C518' stroke='%2315171A' stroke-width='4'/%3E%3Ctext x='32' y='44' font-family='Arial Black, sans-serif' font-size='30' font-weight='900' text-anchor='middle' fill='%2315171A'%3ESV%3C/text%3E%3C/svg%3E" />
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      document.documentElement.dataset.theme = savedTheme;
+    }
+    document.documentElement.classList.add("js");
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=IBM+Plex+Sans:wght@400;500;600&family=Martian+Mono:wdth,wght@75..112.5,300..700&family=Noto+Sans+Devanagari:wght@700&family=Noto+Sans+Tamil:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#top">Skip to content</a>
+
+  <header class="site-header">
+    <a class="roundel" href="#top" aria-label="Back to top">
+      <span class="roundel-ring" aria-hidden="true"></span>
+      <span class="roundel-text">SV</span>
+    </a>
+    <nav class="line-nav" aria-label="Sections">
+      <a href="#red" data-line="red"><span class="dot" aria-hidden="true"></span>Business</a>
+      <a href="#green" data-line="green"><span class="dot" aria-hidden="true"></span>Transit</a>
+      <a href="#amber" data-line="amber"><span class="dot" aria-hidden="true"></span>Money</a>
+      <a href="#magenta" data-line="magenta"><span class="dot" aria-hidden="true"></span>Personal</a>
+      <a href="#career">Career</a>
+      <a href="#atlas">Atlas</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to night service">☾</button>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ======================= HERO ======================= -->
+    <section class="hero">
+      <p class="eyebrow load-reveal">Srivathsan Venkateswaran · Software engineer · Dindigul, India</p>
+
+      <div class="signpost load-reveal" role="img" aria-label="Indian Railways style station name board reading Srivathsan Venkateswaran">
+        <div class="board">
+          <span class="board-tamil" lang="ta">ஸ்ரீவத்சன்</span>
+          <span class="board-hindi" lang="hi">श्रीवत्सन</span>
+          <span class="board-name">Srivathsan</span>
+          <span class="board-surname">Venkateswaran</span>
+          <span class="board-meta">Software Engineer · SILQ · Dindigul</span>
+        </div>
+        <div class="board-legs" aria-hidden="true"><span></span><span></span></div>
+      </div>
+
+      <h1 class="claim load-reveal">
+        Seventeen things shipped.<br />
+        <em>Four of them are running someone else's business.</em>
+      </h1>
+
+      <p class="hero-intro load-reveal">
+        I write backend and product software for a living, at SILQ now and at
+        Caterpillar before that. The rest of it is this: a gym platform that
+        replaced a stack of paper receipt books, a journey planner that prices a
+        bus, a metro and two walks as one trip, a voice agent that answers a
+        clinic's phone, and a market dashboard that recomputes ninety-eight
+        charts a day for nothing a month. What follows is all of it, drawn as a
+        network, with the status of each one stated plainly.
+      </p>
+
+      <ul class="hero-links load-reveal" id="hero-links"></ul>
+    </section>
+
+    <div class="tactile" aria-hidden="true"></div>
+
+    <!-- ======================= EVIDENCE ======================= -->
+    <section class="evidence" aria-label="The numbers">
+      <div class="evidence-inner observe">
+        <dl class="stat-row" id="stat-row"></dl>
+        <p class="evidence-foot">
+          Every number here comes out of my own repositories or trip files. The
+          travel figures are computed at build time from the parsed notes, not
+          typed in by hand.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================= THE NETWORK ======================= -->
+    <section class="network-band" id="network">
+      <div class="section-head observe">
+        <p class="kicker">The network</p>
+        <h2>Everything I have shipped, and where it sits</h2>
+        <p class="lede">
+          Four lines, seventeen stations. Lines are grouped by who the thing is
+          for, not by what it is written in. Where two projects share a stack
+          they are tied together like an out-of-station interchange. Pick any
+          station to open it.
+        </p>
+      </div>
+
+      <figure class="map-figure observe">
+        <div class="map-scroll">
+          <svg id="network-svg" viewBox="0 0 1200 560" role="img"
+               aria-labelledby="net-title net-desc">
+            <title id="net-title">Network diagram of seventeen shipped projects across four lines</title>
+            <desc id="net-desc">A schematic transit map. The full station list follows below in text.</desc>
+          </svg>
+        </div>
+        <p class="map-hint">Scroll the map sideways to see the whole network.</p>
+        <ul class="net-legend">
+          <li><span class="lg lg-stop" aria-hidden="true"></span>Station</li>
+          <li><span class="lg lg-change" aria-hidden="true"></span>Shares a stack with another line</li>
+          <li><span class="lg lg-private" aria-hidden="true"></span>Built, not deployed</li>
+          <li><span class="lg lg-archive" aria-hidden="true"></span>Archive</li>
+          <li><span class="lg lg-tie" aria-hidden="true"></span>Interchange tie</li>
+        </ul>
+        <figcaption>
+          FIG. 01 · The network. Drawn from the same data that renders the list below.
+        </figcaption>
+      </figure>
+
+      <div id="lines"></div>
+
+      <noscript>
+        <div class="noscript">
+          <p><strong>This page draws itself with JavaScript.</strong> The short version:</p>
+          <ul>
+            <li><a href="https://getsquadfit.com">SquadFit</a>, a multi-tenant gym platform running in real gyms</li>
+            <li><a href="https://burrito-finance.vercel.app">Burrito</a>, 98 market charts recomputed daily at $0 a month</li>
+            <li><a href="https://one-rail.vercel.app">OneRail</a>, an Indian Railways atlas built from OpenStreetMap</li>
+            <li><a href="https://travelport.vercel.app">TravelPort</a>, handwritten trip notes parsed into structured data</li>
+            <li><a href="https://github.com/srivathsanvenkateswaran">GitHub</a> ·
+                <a href="https://www.linkedin.com/in/srivathsanvenkateswaran/">LinkedIn</a> ·
+                <a href="mailto:srivathsanvenkateswaran@gmail.com">Email</a></li>
+          </ul>
+        </div>
+      </noscript>
+    </section>
+
+    <!-- ======================= CAREER TRUNK ======================= -->
+    <section class="trunk-band" id="career">
+      <div class="section-head observe">
+        <p class="kicker">The trunk line</p>
+        <h2>Where the day job has run</h2>
+        <p class="lede">
+          One continuous route from a college in Madurai to a supply-chain
+          platform, with a three-year stop at Caterpillar in the middle that
+          began as a six-month internship.
+        </p>
+      </div>
+      <ol class="trunk" id="trunk"></ol>
+    </section>
+
+    <!-- ======================= THE REAL NETWORK ======================= -->
+    <section class="atlas-band" id="atlas">
+      <div class="section-head observe">
+        <p class="kicker">And the real one</p>
+        <h2>Two hundred and twenty-two days on the ground</h2>
+        <p class="lede">
+          The map above is a metaphor. This one is not. Every dot is a place I
+          actually went, sized by the number of days I spent there, drawn from
+          the notes I kept at the time and parsed by
+          <a href="https://travelport.vercel.app">TravelPort</a>.
+        </p>
+      </div>
+
+      <div class="atlas observe">
+        <div class="atlas-controls" id="atlas-controls" role="group" aria-label="Filter the map by year"></div>
+        <figure class="atlas-figure">
+          <svg id="atlas-svg" role="img" aria-labelledby="atlas-title atlas-desc">
+            <title id="atlas-title">Map of India showing states and cities visited</title>
+            <desc id="atlas-desc">Nineteen states and union territories are filled. Forty-three cities are marked, sized by days spent. The full figures are listed beside the map.</desc>
+          </svg>
+          <figcaption>FIG. 02 · 45 trips, 2022 to 2026.</figcaption>
+        </figure>
+        <div class="atlas-side">
+          <dl class="atlas-stats" id="atlas-stats"></dl>
+          <div class="atlas-years" id="atlas-years"></div>
+          <p class="atlas-note">
+            State outlines and city coordinates come from TravelPort's own
+            baked geometry, projected here with the same Mercator constants.
+            No map library, no tile server, no request leaves this page.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= TERMINUS ======================= -->
+    <section class="terminus" id="contact">
+      <div class="section-head observe">
+        <p class="kicker">Terminus</p>
+        <h2>End of the line</h2>
+      </div>
+      <div class="terminus-body observe">
+        <p>
+          If you are building something small and specific and real, that is the
+          kind of thing I like most. Email is the fastest way to reach me.
+        </p>
+        <ul class="terminus-links" id="terminus-links"></ul>
+        <p class="colophon">
+          Hand-written HTML, CSS and JavaScript. No framework, no build step, no
+          dependencies, no analytics. The network diagram and the map of India
+          are both drawn as SVG from data files in this repository, which is
+          roughly how <a href="https://github.com/srivathsanvenkateswaran/OneMetro">OneMetro</a>
+          works too.
+        </p>
+      </div>
+      <div class="buffer" aria-hidden="true"><span></span><span></span></div>
+    </section>
+
+  </main>
+
+  <script src="india.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="network.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

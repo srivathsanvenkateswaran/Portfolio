@@ -277,14 +277,16 @@
     if (!host) return;
     const st = india.stats;
     const running = net.stations.filter((s) => s.status === "running").length;
+    /* Velocity first: it is the strongest number here and the easiest to check.
+       See scripts/velocity.sh for how the two build figures are counted. */
     const stats = [
-      [net.stations.length, "shipped"],
+      [13, "products in seven weeks"],
+      ["1,765", "commits, 2 Jul to 19 Aug 2026"],
       [running, "in real use by someone else"],
-      ["v2.70.0", "SquadFit, today"],
-      [st.states, "states and union territories"],
-      [st.cities, "cities"],
+      [net.stations.length, "shipped in total"],
       [st.days, "days on the road"],
-      [3, "languages shipped in"],
+      [st.cities, "cities"],
+      [st.states, "states and union territories"],
     ];
     stats.forEach(([n, label]) => {
       host.appendChild(

@@ -21,7 +21,9 @@ window.NETWORK = {
       name: "Red Line",
       claim: "Software small businesses actually run on",
       lede: "Four of these run somebody's business today. Not a pilot, not a demo: " +
-            "the thing they open on a Monday morning.",
+            "the thing they open on a Monday morning. Small businesses rarely get " +
+            "sold software, they get quoted for it, so these are built cheap " +
+            "enough to say yes to.",
       path: "M110,170 H630 L730,270 H1090",
     },
     {
@@ -73,10 +75,18 @@ window.NETWORK = {
     {
       id: "squadfit", line: "red", x: 110, y: 170,
       name: "SquadFit", status: "running", version: "v2.70.0",
-      outcome: "Gyms threw out the receipt book. Owners take payments, chase dues and check members in by QR.",
-      solves: "Gyms run on paper receipt books and signature registers.",
-      what: "Owners run plans, payments, dues and QR check-in. Members log " +
-            "workouts, hold streaks and race their squad weekly.",
+      outcome: "For the price of two memberships a month, a gym gets three products: " +
+               "a sales suite, a member app, and workout tracking.",
+      solves: "Gyms run on paper receipt books and signature registers, and pay " +
+              "for nothing else because everything else is priced for chains.",
+      replaces: "Three separate products a small gym could never justify buying: " +
+                "a sales and billing suite, a branded member app, and a workout " +
+                "tracker. It costs about what two members pay.",
+      what: "The owner gets a full sales suite: plans, payments, dues, renewals " +
+            "and QR check-in, with the paper receipt book and the signature " +
+            "register gone. The member gets an app in the mould of Cult.fit, and " +
+            "workout tracking that stands next to Hevy: sets, streaks, tension, " +
+            "and a weekly race against their squad.",
       stack: ["Next.js 16", "React 19", "Drizzle", "Neon", "Better Auth", "Expo"],
       surface: "One backend, two surfaces, one version number: a PWA and a " +
                "React Native Android app that share their domain code verbatim.",
@@ -133,7 +143,8 @@ window.NETWORK = {
     {
       id: "jelfort", line: "red", x: 630, y: 170,
       name: "Jelfort", status: "private",
-      outcome: "Answers the phone when nobody is at the desk, and books the slot anyway.",
+      outcome: "Covers the phone at every hour a receptionist is not there, and " +
+               "books the appointment anyway.",
       solves: "The five questions a front desk answers all day, at the hours nobody is at the desk.",
       what: "A voice agent that answers the phone for a dental clinic or a salon, " +
             "holds a real conversation, books the slot and hangs up. The owner " +
@@ -162,8 +173,11 @@ window.NETWORK = {
     {
       id: "jcomm", line: "red", x: 960, y: 270,
       name: "JComm", status: "live",
-      outcome: "A whole jersey store, live from one config file and a fresh database.",
+      outcome: "A retailer gets a complete online store for the cost of editing " +
+               "one config file.",
       solves: "Every small jersey retailer needs the same store built again from scratch.",
+      replaces: "A bespoke build per retailer. One codebase is one store, so the " +
+                "second customer costs a config file rather than a project.",
       what: "A resellable single-store e-commerce template. One codebase is one " +
             "store: to onboard a retailer you edit one config file, set env vars " +
             "and point it at a fresh database.",
@@ -283,7 +297,8 @@ window.NETWORK = {
     {
       id: "misal", line: "amber", x: 110, y: 490,
       name: "Misal", status: "live",
-      outcome: "Everything you own in one honest number, with no account and nothing leaving your machine.",
+      outcome: "Everything you own in one honest number, without handing your " +
+               "portfolio to anybody.",
       solves: "Net worth scattered across brokers, fund houses, an employer equity account and a couple of exchanges.",
       what: "A local-first desktop app that consolidates Indian brokers, mutual " +
             "funds, US employer equity and crypto into one honest view. No " +
@@ -301,8 +316,11 @@ window.NETWORK = {
     {
       id: "burrito", line: "amber", x: 240, y: 490,
       name: "Burrito", status: "live",
-      outcome: "Ninety-eight charts of market risk, recomputed every day, for zero a month.",
+      outcome: "Does what a paid crypto-analytics subscription does. Ninety-eight " +
+               "charts, recomputed daily, at zero a month.",
       solves: "The paid crypto-analytics platforms cost more than the insight is worth.",
+      replaces: "A monthly analytics subscription, rebuilt solo on entirely free " +
+                "data sources and hosted for nothing.",
       what: "A self-updating quantitative market site: 98 charts of risk, cycles, " +
             "on-chain data, breadth, derivatives and US macro across 27 assets, " +
             "recomputed daily.",

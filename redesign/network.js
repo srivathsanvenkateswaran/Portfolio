@@ -191,6 +191,7 @@
 
     add("status", status.word + ", " + status.note + (s.version ? " · " + s.version : ""));
     add("the problem", s.solves);
+    if (s.replaces) add("what it replaces", s.replaces);
     add("how it works", s.what);
     if (s.surface) add("surface", s.surface);
     if (s.stack) {

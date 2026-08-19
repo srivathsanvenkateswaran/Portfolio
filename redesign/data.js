@@ -22,8 +22,8 @@ window.NETWORK = {
       claim: "Software small businesses actually run on",
       lede: "Four of these run somebody's business today. Not a pilot, not a demo: " +
             "the thing they open on a Monday morning. Small businesses rarely get " +
-            "sold software, they get quoted for it, so these are built cheap " +
-            "enough to say yes to.",
+            "sold software, they get quoted enterprise prices for it. These are " +
+            "priced against what they earn back.",
       path: "M110,170 H630 L730,270 H1090",
     },
     {
@@ -195,7 +195,7 @@ window.NETWORK = {
       id: "darshini", line: "red", x: 1090, y: 270,
       name: "Darshini template", short: "Darshini", status: "live",
       outcome: "A complete restaurant site, built on spec and pitched cold to a shop that never replied.",
-      solves: "A neighbourhood tiffin shop with no website and no budget for one.",
+      solves: "A neighbourhood tiffin shop losing walk-ins to every competitor that turns up in a search.",
       what: "A complete small-restaurant site: hero, story, signature dishes, full " +
             "menu, visit details. Built speculatively and pitched cold. It was " +
             "never taken up, so it stands as a template rather than as client work.",

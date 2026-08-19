@@ -173,7 +173,7 @@
     }, [
       el("span", { class: "st-tick", "aria-hidden": "true" }),
       el("span", { class: "st-name", text: s.name }),
-      el("span", { class: "st-solves", text: s.solves }),
+      el("span", { class: "st-solves", text: s.outcome }),
       el("span", { class: "st-status", "data-status": s.status }, [
         el("span", { class: "st-pulse", "aria-hidden": "true" }),
         el("span", { text: status.word }),
@@ -190,7 +190,8 @@
     );
 
     add("status", status.word + ", " + status.note + (s.version ? " · " + s.version : ""));
-    add("what", s.what);
+    add("the problem", s.solves);
+    add("how it works", s.what);
     if (s.surface) add("surface", s.surface);
     if (s.stack) {
       add("stack", s.stack.map((t) => el("span", { class: "chip", text: t })));

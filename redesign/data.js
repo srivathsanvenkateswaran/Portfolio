@@ -20,30 +20,31 @@ window.NETWORK = {
       id: "red",
       name: "Red Line",
       claim: "Software small businesses actually run on",
-      lede: "Four of these are in daily use by someone who is not me. That is the " +
-            "only sentence on this page I would defend hardest.",
+      lede: "Four of these run somebody's business today. Not a pilot, not a demo: " +
+            "the thing they open on a Monday morning.",
       path: "M110,170 H630 L730,270 H1090",
     },
     {
       id: "green",
       name: "Green Line",
       claim: "Transit and maps",
-      lede: "I keep building the same thing from different angles: a network, " +
-            "priced and timed, drawn honestly.",
+      lede: "I have built the same idea four times: take a network, price it, time it, " +
+            "and draw it so a stranger can read it.",
       path: "M110,330 H500",
     },
     {
       id: "amber",
       name: "Amber Line",
       claim: "Money",
-      lede: "Reading markets is the hobby. These are what the hobby produced.",
+      lede: "I have read markets for seven years. These are the tools I got tired of " +
+            "paying other people for.",
       path: "M110,490 H370",
     },
     {
       id: "magenta",
       name: "Magenta Line",
       claim: "Built for me and my friends",
-      lede: "No users to answer to, which is the point.",
+      lede: "Nobody is paying for these. I built them because the weekend was there.",
       path: "M830,400 H960",
     },
   ],
@@ -72,6 +73,7 @@ window.NETWORK = {
     {
       id: "squadfit", line: "red", x: 110, y: 170,
       name: "SquadFit", status: "running", version: "v2.70.0",
+      outcome: "Gyms threw out the receipt book. Owners take payments, chase dues and check members in by QR.",
       solves: "Gyms run on paper receipt books and signature registers.",
       what: "Owners run plans, payments, dues and QR check-in. Members log " +
             "workouts, hold streaks and race their squad weekly.",
@@ -90,6 +92,7 @@ window.NETWORK = {
     {
       id: "pharmacare", line: "red", x: 240, y: 170,
       name: "PharmaCare", status: "running",
+      outcome: "A distributor can finally see who owes what, without opening the ERP.",
       solves: "A distributor's receivables lived inside a legacy ERP that nobody could query.",
       what: "Reverse engineered the ERP's open-item receivables ledger and " +
             "reproduced its on-screen party balances exactly, proved against two " +
@@ -107,6 +110,7 @@ window.NETWORK = {
     {
       id: "mastersmentor", line: "red", x: 370, y: 170,
       name: "Masters Mentor", short: "MastersMentor", status: "running",
+      outcome: "Turned a consultancy's track record into something a student can actually see before paying.",
       solves: "An admissions consultancy with no way to show its record or qualify a lead.",
       what: "Packages, case studies and a free profile-evaluation tool for a " +
             "consultancy that places Indian students in European business schools.",
@@ -118,6 +122,7 @@ window.NETWORK = {
     {
       id: "vyasadithya", line: "red", x: 500, y: 170,
       name: "Vyas Adithya", status: "running",
+      outcome: "Gave a mentor a front door his clients could find.",
       solves: "A mentor with no home on the internet.",
       what: "Personal site for an ex-Amazon, ESCP mentor. Built end to end, " +
             "live on his own domain, and the site he actually uses.",
@@ -128,6 +133,7 @@ window.NETWORK = {
     {
       id: "jelfort", line: "red", x: 630, y: 170,
       name: "Jelfort", status: "private",
+      outcome: "Answers the phone when nobody is at the desk, and books the slot anyway.",
       solves: "The five questions a front desk answers all day, at the hours nobody is at the desk.",
       what: "A voice agent that answers the phone for a dental clinic or a salon, " +
             "holds a real conversation, books the slot and hangs up. The owner " +
@@ -145,6 +151,7 @@ window.NETWORK = {
     {
       id: "tarvo", line: "red", x: 830, y: 270,
       name: "Tarvo", status: "live",
+      outcome: "An apartment block's maintenance dues, out of the notebook and into a ledger that adds up.",
       solves: "An apartment block's maintenance dues tracked in a notebook.",
       what: "Maintenance and book-keeping ledger for an apartment block, with the " +
             "ledger maths checked by assertions rather than by trust.",
@@ -155,6 +162,7 @@ window.NETWORK = {
     {
       id: "jcomm", line: "red", x: 960, y: 270,
       name: "JComm", status: "live",
+      outcome: "A whole jersey store, live from one config file and a fresh database.",
       solves: "Every small jersey retailer needs the same store built again from scratch.",
       what: "A resellable single-store e-commerce template. One codebase is one " +
             "store: to onboard a retailer you edit one config file, set env vars " +
@@ -172,6 +180,7 @@ window.NETWORK = {
     {
       id: "darshini", line: "red", x: 1090, y: 270,
       name: "Darshini template", short: "Darshini", status: "live",
+      outcome: "A complete restaurant site, built on spec and pitched cold to a shop that never replied.",
       solves: "A neighbourhood tiffin shop with no website and no budget for one.",
       what: "A complete small-restaurant site: hero, story, signature dishes, full " +
             "menu, visit details. Built speculatively and pitched cold. It was " +
@@ -189,6 +198,7 @@ window.NETWORK = {
     {
       id: "tatak", line: "green", x: 110, y: 330,
       name: "Tatak", status: "private",
+      outcome: "One search returns a door-to-door trip across Bengaluru's buses and metro, priced leg by leg.",
       solves: "Crossing Bengaluru when the real answer is a walk, a bus, a metro and another walk.",
       what: "A multi-modal journey planner across BMTC buses and Namma Metro. " +
             "Every leg priced in integer paise, metro by fare zone and bus by " +
@@ -215,6 +225,7 @@ window.NETWORK = {
     {
       id: "travelport", line: "green", x: 240, y: 330,
       name: "TravelPort", status: "private",
+      outcome: "Ten years of handwritten trip notes became the map at the bottom of this page.",
       solves: "Years of handwritten trip notes that nobody could query.",
       what: "Parses free-text travel notes into structured JSON: every expense " +
             "typed and priced, its city derived, a confidence score attached, and " +
@@ -233,6 +244,7 @@ window.NETWORK = {
     {
       id: "onerail", line: "green", x: 370, y: 330,
       name: "OneRail", status: "live",
+      outcome: "The entire Indian rail network, explorable down to a single train's coach layout.",
       solves: "Indian Railways data is everywhere and explorable nowhere.",
       what: "Train schedules down to platform numbers and day increments, rake " +
             "and coach composition, Rake Sharing Association groups, and a " +
@@ -249,6 +261,7 @@ window.NETWORK = {
     {
       id: "onemetro", line: "green", x: 500, y: 330,
       name: "OneMetro", status: "archive", stars: 6,
+      outcome: "Every Indian metro map, open in under a second, with no app to install.",
       solves: "India's metro networks, each locked inside its own operator's app.",
       what: "One gateway to DMRC, CMRL, KMRL and MMRDA networks: maps that load " +
             "in under a second, a Ctrl+P command palette over every station, and " +
@@ -270,6 +283,7 @@ window.NETWORK = {
     {
       id: "misal", line: "amber", x: 110, y: 490,
       name: "Misal", status: "live",
+      outcome: "Everything you own in one honest number, with no account and nothing leaving your machine.",
       solves: "Net worth scattered across brokers, fund houses, an employer equity account and a couple of exchanges.",
       what: "A local-first desktop app that consolidates Indian brokers, mutual " +
             "funds, US employer equity and crypto into one honest view. No " +
@@ -287,6 +301,7 @@ window.NETWORK = {
     {
       id: "burrito", line: "amber", x: 240, y: 490,
       name: "Burrito", status: "live",
+      outcome: "Ninety-eight charts of market risk, recomputed every day, for zero a month.",
       solves: "The paid crypto-analytics platforms cost more than the insight is worth.",
       what: "A self-updating quantitative market site: 98 charts of risk, cycles, " +
             "on-chain data, breadth, derivatives and US macro across 27 assets, " +
@@ -311,6 +326,7 @@ window.NETWORK = {
     {
       id: "cryptopm", line: "amber", x: 370, y: 490,
       name: "CryptoPortfolioManager", short: "Crypto PM", status: "archive", stars: 3,
+      outcome: "Portfolio tracking without handing your holdings to a website.",
       solves: "Tracking a crypto portfolio without handing it to a website.",
       what: "A command-line portfolio tracker. Small, old, and still the thing " +
             "I reach for.",
@@ -323,6 +339,7 @@ window.NETWORK = {
     {
       id: "bidwicket", line: "magenta", x: 830, y: 400,
       name: "BidWicket", status: "private",
+      outcome: "An IPL auction for eight friends, and a whole season to live with what you bought.",
       solves: "A group of friends who wanted an IPL auction of their own.",
       what: "A live player auction everyone bids in from their phone: the timer " +
             "resets on every bid and the hammer falls when it hits zero. Then a " +
@@ -339,6 +356,7 @@ window.NETWORK = {
     {
       id: "jimvathsan", line: "magenta", x: 960, y: 400,
       name: "Jimvathsan", status: "live",
+      outcome: "Logging a set takes less time than the set did.",
       solves: "Logging a workout should take less time than the set did.",
       what: "A training tracker that takes plain-text notation, " +
             "'Chest press @15 1x15 1x13', and updates the dashboard, the per-day, " +

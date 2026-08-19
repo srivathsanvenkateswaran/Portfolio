@@ -59,7 +59,7 @@ const OWNED = new Set([
 const OFFSITE = new Set(["github.com", "www.linkedin.com", "srivathsan.hashnode.dev"]);
 
 /* ---------- structure ---------- */
-const REQUIRED = ["id", "line", "x", "y", "name", "status", "solves", "what"];
+const REQUIRED = ["id", "line", "x", "y", "name", "status", "outcome", "solves", "what"];
 const STATUSES = new Set(["running", "live", "private", "archive"]);
 const lineIds = new Set(net.lines.map((l) => l.id));
 const ids = new Set();

@@ -176,11 +176,11 @@ window.NETWORK = {
       outcome: "A retailer gets a complete online store for the cost of editing " +
                "one config file.",
       solves: "Every small jersey retailer needs the same store built again from scratch.",
-      replaces: "A bespoke build per retailer. One codebase is one store, so the " +
-                "second customer costs a config file rather than a project.",
-      what: "A resellable single-store e-commerce template. One codebase is one " +
-            "store: to onboard a retailer you edit one config file, set env vars " +
-            "and point it at a fresh database.",
+      replaces: "A bespoke build per retailer. The second customer costs an " +
+                "afternoon rather than a project.",
+      what: "A resellable single-store e-commerce template. To onboard a retailer " +
+            "you edit the config, set the env vars and point it at a fresh " +
+            "database. Nothing else changes.",
       stack: ["Next.js App Router", "Tailwind v4", "Drizzle", "Auth.js",
               "Cloudflare R2", "Razorpay"],
       notes: [
@@ -213,7 +213,7 @@ window.NETWORK = {
       id: "tatak", line: "green", x: 110, y: 330,
       name: "Tatak", status: "private",
       outcome: "One search returns a door-to-door trip across Bengaluru's buses and metro, priced leg by leg.",
-      solves: "Crossing Bengaluru when the real answer is a walk, a bus, a metro and another walk.",
+      solves: "Crossing Bengaluru usually means a walk, a bus, a metro and another walk.",
       what: "A multi-modal journey planner across BMTC buses and Namma Metro. " +
             "Every leg priced in integer paise, metro by fare zone and bus by " +
             "distance, then ranked and tagged FASTEST, CHEAPEST or MINIMUM_TRANSITS.",
@@ -301,7 +301,7 @@ window.NETWORK = {
                "portfolio to anybody.",
       solves: "Net worth scattered across brokers, fund houses, an employer equity account and a couple of exchanges.",
       what: "A local-first desktop app that consolidates Indian brokers, mutual " +
-            "funds, US employer equity and crypto into one honest view. No " +
+            "funds, US employer equity and crypto into a single view. No " +
             "account, no cloud, no server: the data stays on the machine.",
       stack: ["Tauri", "TypeScript", "Vite"],
       notes: [

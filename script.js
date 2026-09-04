@@ -1,136 +1,94 @@
-const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+/* ============================================================
+   Behaviour: render, then reveal, disclose, and follow scroll.
+   Everything here degrades to a readable page if it does not run.
+   ============================================================ */
 
-// Load-in reveal for hero elements
-document.addEventListener("DOMContentLoaded", () => {
-  requestAnimationFrame(() => {
-    document.querySelectorAll(".load-reveal").forEach((el) => el.classList.add("in"));
-  });
-});
+(function () {
+  "use strict";
 
-// Scroll-triggered reveals
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-);
-document.querySelectorAll(".observe").forEach((el) => observer.observe(el));
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// Departures board rows scroll to their section
-document.querySelectorAll(".dep-row").forEach((row) => {
-  row.addEventListener("click", () => {
-    const target = document.querySelector(row.dataset.target);
-    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-});
+  if (typeof window.RENDER === "function") window.RENDER();
 
-// Live IST clock on the departures board
-const clock = document.getElementById("ist-clock");
-if (clock) {
-  const fmt = new Intl.DateTimeFormat("en-IN", {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-    timeZone: "Asia/Kolkata",
-  });
-  const tick = () => { clock.textContent = `${fmt.format(new Date())} IST`; };
-  tick();
-  setInterval(tick, 1000);
-}
-
-/* ------------------------------------------------------------------
-   The route spine. Track behind you fills in with the line colour and
-   each station lights up as the train passes it — "you are here",
-   drawn as a network diagram rather than a progress bar.
-   ------------------------------------------------------------------ */
-const rails = [...document.querySelectorAll(".line-section")].map((section) => ({
-  section,
-  fill: section.querySelector(".rail i"),
-}));
-const stations = [...document.querySelectorAll(".station-marker, .stop-tick")];
-
-const clamp01 = (n) => (n < 0 ? 0 : n > 1 ? 1 : n);
-
-function drawRoute() {
-  const here = window.innerHeight * 0.5;
-
-  rails.forEach(({ section, fill }) => {
-    if (!fill) return;
-    const box = section.getBoundingClientRect();
-    fill.style.setProperty("--travel", clamp01((here - box.top) / box.height).toFixed(4));
-  });
-
-  stations.forEach((station) => {
-    station.classList.toggle("passed", station.getBoundingClientRect().top < here);
-  });
-}
-
-let queued = false;
-function scheduleDraw() {
-  if (queued) return;
-  queued = true;
-  requestAnimationFrame(() => { queued = false; drawRoute(); });
-}
-
-if (reduceMotion.matches) {
-  // Show the whole route at once instead of animating a train along it
-  rails.forEach(({ fill }) => fill && fill.style.setProperty("--travel", "1"));
-  stations.forEach((station) => station.classList.add("passed"));
-} else if (rails.length) {
-  drawRoute();
-  addEventListener("scroll", scheduleDraw, { passive: true });
-  addEventListener("resize", scheduleDraw);
-}
-
-// Highlight the nav link for the section in view
-const navLinks = [...document.querySelectorAll(".line-nav a[data-line]")];
-const sections = navLinks
-  .map((a) => document.querySelector(a.getAttribute("href")))
-  .filter(Boolean);
-
-const navObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      const link = navLinks.find((a) => a.getAttribute("href") === `#${entry.target.id}`);
-      if (!link) return;
-      if (entry.isIntersecting) link.setAttribute("aria-current", "true");
-      else link.removeAttribute("aria-current");
-    });
-  },
-  { rootMargin: "-30% 0px -55% 0px" }
-);
-sections.forEach((s) => navObserver.observe(s));
-
-// Night service toggle — follows the system until the user picks a side
-const toggle = document.querySelector(".theme-toggle");
-if (toggle) {
-  const systemDark = matchMedia("(prefers-color-scheme: dark)");
-  const effectiveTheme = () =>
-    document.documentElement.dataset.theme || (systemDark.matches ? "dark" : "light");
-
-  const paintToggle = () => {
-    const dark = effectiveTheme() === "dark";
-    toggle.textContent = dark ? "☀" : "☾";
-    toggle.setAttribute("aria-label", dark ? "Switch to day service" : "Switch to night service");
+  /* ---------- Header state ---------- */
+  const header = document.querySelector(".site-header");
+  const onScroll = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 8);
   };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 
-  toggle.addEventListener("click", () => {
-    const next = effectiveTheme() === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    localStorage.setItem("theme", next);
-    paintToggle();
+  /* ---------- Reveal on scroll ---------- */
+  const observed = document.querySelectorAll(".observe");
+  if (reduced || !("IntersectionObserver" in window)) {
+    observed.forEach((n) => n.classList.add("is-in"));
+  } else {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        });
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.05 }
+    );
+    observed.forEach((n) => io.observe(n));
+  }
+
+  /* ---------- Card disclosure ----------
+     One card can be open at a time inside a group is tempting, but people
+     compare projects side by side, so any number stay open. */
+  function setOpen(card, open) {
+    const btn = card.querySelector(".card-top");
+    const panel = card.querySelector(".card-panel");
+    card.dataset.open = open ? "true" : "false";
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.querySelector(".card-more span").textContent = open ? "Close" : "Detail";
+    if (open) panel.removeAttribute("hidden");
+    else panel.setAttribute("hidden", "");
+  }
+
+  document.querySelectorAll(".card").forEach((card) => {
+    const btn = card.querySelector(".card-top");
+    btn.addEventListener("click", () => {
+      setOpen(card, card.dataset.open !== "true");
+    });
   });
 
-  systemDark.addEventListener("change", paintToggle);
-  paintToggle();
-}
+  /* Deep link straight to one project: /#squadfit opens its card. */
+  function openFromHash() {
+    const id = decodeURIComponent(location.hash || "").replace(/^#/, "");
+    if (!id) return;
+    const card = document.querySelector('.card[data-project="' + CSS.escape(id) + '"]');
+    if (!card) return;
+    setOpen(card, true);
+    card.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
+  }
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
 
-// Footer year
-const year = document.getElementById("year");
-if (year) year.textContent = new Date().getFullYear();
+  /* ---------- Nav highlight ---------- */
+  const navLinks = Array.prototype.slice.call(
+    document.querySelectorAll(".site-nav a[href^='#']")
+  );
+  const targets = navLinks
+    .map((a) => ({ link: a, section: document.querySelector(a.getAttribute("href")) }))
+    .filter((t) => t.section);
+
+  if ("IntersectionObserver" in window && targets.length) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const hit = targets.find((t) => t.section === e.target);
+          if (!hit) return;
+          navLinks.forEach((a) => a.classList.remove("is-active"));
+          hit.link.classList.add("is-active");
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    targets.forEach((t) => spy.observe(t.section));
+  }
+})();

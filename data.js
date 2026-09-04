@@ -1,10 +1,8 @@
 /* ============================================================
-   The network: every shipped thing, and where it sits.
+   Every shipped thing, and where it sits.
 
-   Stations are data, not hand-drawn paths, so the map can be
-   re-laid-out by editing numbers here. Layout grid is a
-   1200 x 560 viewBox; lines run horizontally with a single
-   45 degree bend, and interchange ties are vertical.
+   The page draws itself from this file. Edit here, not in the
+   markup: index.html carries no project copy at all.
 
    Status vocabulary, and each has to be literally true:
      running  deployed and in real use by someone who is not me
@@ -13,48 +11,44 @@
      archive  older public work, still up, not worked on now
    ============================================================ */
 
-window.NETWORK = {
+window.PORTFOLIO = {
 
-  lines: [
+  groups: [
     {
-      id: "red",
-      name: "Red Line",
-      claim: "Software small businesses actually run on",
+      id: "business",
+      label: "Client work",
+      name: "Software small businesses actually run on",
       lede: "Four of these run somebody's business today. Not a pilot, not a demo: " +
             "the thing they open on a Monday morning. Small businesses rarely get " +
             "sold software, they get quoted enterprise prices for it. These are " +
             "priced against what they earn back.",
-      path: "M110,170 H630 L730,270 H1090",
     },
     {
-      id: "green",
-      name: "Green Line",
-      claim: "Transit and maps",
+      id: "transit",
+      label: "Transit & maps",
+      name: "Transit and maps",
       lede: "I have built the same idea four times: take a network, price it, time it, " +
             "and draw it so a stranger can read it.",
-      path: "M110,330 H500",
     },
     {
-      id: "amber",
-      name: "Amber Line",
-      claim: "Money",
+      id: "money",
+      label: "Money",
+      name: "Money",
       lede: "I have read markets for seven years. These are the tools I got tired of " +
             "paying other people for.",
-      path: "M110,490 H370",
     },
     {
-      id: "magenta",
-      name: "Magenta Line",
-      claim: "Built for me and my friends",
+      id: "personal",
+      label: "Personal",
+      name: "Built for me and my friends",
       lede: "Nobody is paying for these. I built them because the weekend was there.",
-      path: "M830,400 H960",
     },
   ],
 
-  /* Groups of stations sharing a stack. Membership shows as a badge on every
-     member's sheet; the pairs that sit next to each other on the grid are also
-     drawn as dashed interchange ties. */
-  interchanges: [
+  /* Projects sharing a stack. Membership shows as a line on every member's
+     expanded card, because "I built this four times on the same foundation"
+     is a claim about reuse worth making explicitly. */
+  stacks: [
     { id: "drizzle", label: "Next.js + Drizzle + Neon",
       members: ["squadfit", "tarvo", "jcomm", "jimvathsan"] },
     { id: "native", label: "PWA + native",
@@ -63,17 +57,11 @@ window.NETWORK = {
       members: ["tatak", "misal"] },
   ],
 
-  ties: [
-    ["squadfit", "tatak"],
-    ["tatak", "misal"],
-    ["jcomm", "jimvathsan"],
-  ],
+  projects: [
 
-  stations: [
-
-    /* ---------------- Red Line ---------------- */
+    /* ---------------- Client work ---------------- */
     {
-      id: "squadfit", line: "red", x: 110, y: 170,
+      id: "squadfit", group: "business",
       name: "SquadFit", status: "running", version: "v2.70.0",
       outcome: "For the price of two memberships a month, a gym gets three products: " +
                "a sales suite, a member app, and workout tracking.",
@@ -100,7 +88,7 @@ window.NETWORK = {
       repo: null,
     },
     {
-      id: "pharmacare", line: "red", x: 240, y: 170,
+      id: "pharmacare", group: "business",
       name: "PharmaCare", status: "running",
       outcome: "A distributor can finally see who owes what, without opening the ERP.",
       solves: "A distributor's receivables lived inside a legacy ERP that nobody could query.",
@@ -118,7 +106,7 @@ window.NETWORK = {
       repo: null,
     },
     {
-      id: "mastersmentor", line: "red", x: 370, y: 170,
+      id: "mastersmentor", group: "business",
       name: "Masters Mentor", short: "MastersMentor", status: "running",
       outcome: "Turned a consultancy's track record into something a student can actually see before paying.",
       solves: "An admissions consultancy with no way to show its record or qualify a lead.",
@@ -130,7 +118,7 @@ window.NETWORK = {
       repo: null,
     },
     {
-      id: "vyasadithya", line: "red", x: 500, y: 170,
+      id: "vyasadithya", group: "business",
       name: "Vyas Adithya", status: "running",
       outcome: "Gave a mentor a front door his clients could find.",
       solves: "A mentor with no home on the internet.",
@@ -141,7 +129,7 @@ window.NETWORK = {
       repo: null,
     },
     {
-      id: "jelfort", line: "red", x: 630, y: 170,
+      id: "jelfort", group: "business",
       name: "Jelfort", status: "private",
       outcome: "Covers the phone at every hour a receptionist is not there, and " +
                "books the appointment anyway.",
@@ -160,7 +148,7 @@ window.NETWORK = {
       repo: null,
     },
     {
-      id: "tarvo", line: "red", x: 830, y: 270,
+      id: "tarvo", group: "business",
       name: "Tarvo", status: "live",
       outcome: "An apartment block's maintenance dues, out of the notebook and into a ledger that adds up.",
       solves: "An apartment block's maintenance dues tracked in a notebook.",
@@ -171,7 +159,7 @@ window.NETWORK = {
       repo: null,
     },
     {
-      id: "jcomm", line: "red", x: 960, y: 270,
+      id: "jcomm", group: "business",
       name: "JComm", status: "live",
       outcome: "A retailer gets a complete online store for the cost of editing " +
                "one config file.",
@@ -192,7 +180,7 @@ window.NETWORK = {
       repo: null,
     },
     {
-      id: "darshini", line: "red", x: 1090, y: 270,
+      id: "darshini", group: "business",
       name: "Darshini template", short: "Darshini", status: "live",
       outcome: "A complete restaurant site, built on spec and pitched cold to a shop that never replied.",
       solves: "A neighbourhood tiffin shop losing walk-ins to every competitor that turns up in a search.",
@@ -208,9 +196,9 @@ window.NETWORK = {
       repo: null,
     },
 
-    /* ---------------- Green Line ---------------- */
+    /* ---------------- Transit and maps ---------------- */
     {
-      id: "tatak", line: "green", x: 110, y: 330,
+      id: "tatak", group: "transit",
       name: "Tatak", status: "private",
       outcome: "One search returns a door-to-door trip across Bengaluru's buses and metro, priced leg by leg.",
       solves: "Crossing Bengaluru usually means a walk, a bus, a metro and another walk.",
@@ -237,7 +225,7 @@ window.NETWORK = {
       repo: null,
     },
     {
-      id: "travelport", line: "green", x: 240, y: 330,
+      id: "travelport", group: "transit",
       name: "TravelPort", status: "private",
       outcome: "Ten years of handwritten trip notes became the map at the bottom of this page.",
       solves: "Years of handwritten trip notes that nobody could query.",
@@ -256,7 +244,7 @@ window.NETWORK = {
       repo: null,
     },
     {
-      id: "onerail", line: "green", x: 370, y: 330,
+      id: "onerail", group: "transit",
       name: "OneRail", status: "live",
       outcome: "The entire Indian rail network, explorable down to a single train's coach layout.",
       solves: "Indian Railways data is everywhere and explorable nowhere.",
@@ -273,7 +261,7 @@ window.NETWORK = {
       repo: "https://github.com/srivathsanvenkateswaran/OneRail",
     },
     {
-      id: "onemetro", line: "green", x: 500, y: 330,
+      id: "onemetro", group: "transit",
       name: "OneMetro", status: "archive", stars: 6,
       outcome: "Every Indian metro map, open in under a second, with no app to install.",
       solves: "India's metro networks, each locked inside its own operator's app.",
@@ -293,9 +281,9 @@ window.NETWORK = {
       repo: "https://github.com/srivathsanvenkateswaran/OneMetro",
     },
 
-    /* ---------------- Amber Line ---------------- */
+    /* ---------------- Money ---------------- */
     {
-      id: "misal", line: "amber", x: 110, y: 490,
+      id: "misal", group: "money",
       name: "Misal", status: "live",
       outcome: "Everything you own in one honest number, without handing your " +
                "portfolio to anybody.",
@@ -314,7 +302,7 @@ window.NETWORK = {
       repo: "https://github.com/srivathsanvenkateswaran/Misal",
     },
     {
-      id: "burrito", line: "amber", x: 240, y: 490,
+      id: "burrito", group: "money",
       name: "Burrito", status: "live",
       outcome: "Does what a paid crypto-analytics subscription does. Ninety-eight " +
                "charts, recomputed daily, at zero a month.",
@@ -342,7 +330,7 @@ window.NETWORK = {
       repo: "https://github.com/srivathsanvenkateswaran/Burrito",
     },
     {
-      id: "cryptopm", line: "amber", x: 370, y: 490,
+      id: "cryptopm", group: "money",
       name: "CryptoPortfolioManager", short: "Crypto PM", status: "archive", stars: 3,
       outcome: "Portfolio tracking without handing your holdings to a website.",
       solves: "Tracking a crypto portfolio without handing it to a website.",
@@ -353,9 +341,9 @@ window.NETWORK = {
       repo: "https://github.com/srivathsanvenkateswaran/CryptoPortfolioManager",
     },
 
-    /* ---------------- Magenta Line ---------------- */
+    /* ---------------- Personal ---------------- */
     {
-      id: "bidwicket", line: "magenta", x: 830, y: 400,
+      id: "bidwicket", group: "personal",
       name: "BidWicket", status: "private",
       outcome: "An IPL auction for eight friends, and a whole season to live with what you bought.",
       solves: "A group of friends who wanted an IPL auction of their own.",
@@ -372,7 +360,7 @@ window.NETWORK = {
       repo: null,
     },
     {
-      id: "jimvathsan", line: "magenta", x: 960, y: 400,
+      id: "jimvathsan", group: "personal",
       name: "Jimvathsan", status: "live",
       outcome: "Logging a set takes less time than the set did.",
       solves: "Logging a workout should take less time than the set did.",
@@ -386,7 +374,7 @@ window.NETWORK = {
     },
   ],
 
-  /* ---------------- career trunk ---------------- */
+  /* ---------------- career ---------------- */
   career: [
     { role: "Software Development Engineer 2", org: "SILQ",
       when: "March 2026 to now", where: "", current: true,

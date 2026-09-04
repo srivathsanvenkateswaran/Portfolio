@@ -23,10 +23,10 @@ const offline = process.argv.includes("--offline");
 /* data.js and india.js assign onto `window`, so give them one. */
 const sandbox = { window: {} };
 for (const file of ["data.js", "india.js"]) {
-  const src = readFileSync(join(root, "redesign", file), "utf8");
+  const src = readFileSync(join(root, file), "utf8");
   new Function("window", src)(sandbox.window);
 }
-const net = sandbox.window.NETWORK;
+const work = sandbox.window.PORTFOLIO;
 const india = sandbox.window.INDIA;
 
 const problems = [];
@@ -59,19 +59,19 @@ const OWNED = new Set([
 const OFFSITE = new Set(["github.com", "www.linkedin.com", "srivathsan.hashnode.dev"]);
 
 /* ---------- structure ---------- */
-const REQUIRED = ["id", "line", "x", "y", "name", "status", "outcome", "solves", "what"];
+const REQUIRED = ["id", "group", "name", "status", "outcome", "solves", "what"];
 const STATUSES = new Set(["running", "live", "private", "archive"]);
-const lineIds = new Set(net.lines.map((l) => l.id));
+const groupIds = new Set(work.groups.map((g) => g.id));
 const ids = new Set();
 
-for (const s of net.stations) {
+for (const s of work.projects) {
   const where = s.name || s.id || "(unnamed)";
   for (const f of REQUIRED) {
     if (s[f] === undefined || s[f] === null || s[f] === "") fail(`${where}: missing "${f}"`);
   }
   if (ids.has(s.id)) fail(`${where}: duplicate id "${s.id}"`);
   ids.add(s.id);
-  if (!lineIds.has(s.line)) fail(`${where}: unknown line "${s.line}"`);
+  if (!groupIds.has(s.group)) fail(`${where}: unknown group "${s.group}"`);
   if (!STATUSES.has(s.status)) fail(`${where}: unknown status "${s.status}"`);
 
   const links = s.links || [];
@@ -83,17 +83,14 @@ for (const s of net.stations) {
   }
 }
 
-for (const [a, b] of net.ties) {
-  if (!ids.has(a) || !ids.has(b)) fail(`tie ${a}-${b} points at a station that does not exist`);
-}
-for (const g of net.interchanges) {
+for (const g of work.stacks) {
   for (const m of g.members) {
-    if (!ids.has(m)) fail(`interchange "${g.id}" lists unknown station "${m}"`);
+    if (!ids.has(m)) fail(`shared stack "${g.id}" lists unknown project "${m}"`);
   }
-  if (g.members.length < 2) fail(`interchange "${g.id}" needs at least two members`);
+  if (g.members.length < 2) fail(`shared stack "${g.id}" needs at least two members`);
 }
-for (const l of net.lines) {
-  if (!net.stations.some((s) => s.line === l.id)) fail(`line "${l.id}" has no stations`);
+for (const g of work.groups) {
+  if (!work.projects.some((s) => s.group === g.id)) fail(`group "${g.id}" has no projects`);
 }
 
 /* The evidence strip quotes these, so they must match what was baked. */
@@ -130,7 +127,7 @@ async function isPublicRepo(url) {
 
 if (!offline) {
   const checks = [];
-  for (const s of net.stations) {
+  for (const s of work.projects) {
     for (const l of s.links || []) {
       if (!l.href.startsWith("http")) continue;
       const host = new URL(l.href).hostname;
@@ -153,7 +150,7 @@ if (!offline) {
       );
     }
   }
-  for (const l of net.links) {
+  for (const l of work.links) {
     if (l.href.startsWith("http")) {
       const host = new URL(l.href).hostname;
       if (!OFFSITE.has(host)) fail(`profile link points at unexpected host ${host}`);
@@ -172,12 +169,12 @@ if (!offline) {
 }
 
 /* ---------- report ---------- */
-const running = net.stations.filter((s) => s.status === "running").length;
-const linked = net.stations.filter((s) => (s.links || []).length).length;
-const repos = net.stations.filter((s) => s.repo).length;
+const running = work.projects.filter((s) => s.status === "running").length;
+const linked = work.projects.filter((s) => (s.links || []).length).length;
+const repos = work.projects.filter((s) => s.repo).length;
 
 console.log(
-  `${net.stations.length} stations · ${running} running · ${linked} with a live link · ` +
+  `${work.projects.length} projects · ${running} running · ${linked} with a live link · ` +
   `${repos} with a public repo`
 );
 console.log(

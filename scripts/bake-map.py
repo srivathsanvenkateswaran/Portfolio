@@ -12,7 +12,7 @@ Reads (from the TravelPort repo, never fetched at runtime):
   parsed/*.json                                   the trip files
 
 Writes:
-  redesign/india.js
+  india.js
 """
 
 import json
@@ -24,7 +24,7 @@ from collections import Counter, defaultdict
 
 TRAVELPORT = os.path.expanduser("~/Documents/Personal/TravelPort")
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(HERE, "redesign", "india.js")
+OUT = os.path.join(HERE, "india.js")
 
 # Cities that appear in the trip notes but not in india_cities.json.
 # Coordinates are the standard published ones for each place.

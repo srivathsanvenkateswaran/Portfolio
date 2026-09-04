@@ -3,438 +3,217 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Srivathsan Venkateswaran | Engineer · Investor · Traveller</title>
-  <meta name="description" content="Software engineer in Chennai who ships his hobbies: Android &amp; search engineering by day, quant market dashboards, Indian transit apps, and stories on the side." />
+  <title>Srivathsan Venkateswaran — Software engineer</title>
+  <meta name="description" content="Thirteen products in seven weeks, four of them running a real business: gym software, a pharma receivables ledger, a Bengaluru journey planner, a voice agent and a 98-chart market dashboard." />
   <meta property="og:title" content="Srivathsan Venkateswaran" />
-  <meta property="og:description" content="Engineer · Investor · Traveller · Storyteller. All lines, one network." />
+  <meta property="og:description" content="Thirteen products in seven weeks. Four of them run someone else's business." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#eceae4" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='10' width='60' height='44' rx='8' fill='%23F5C518' stroke='%2315171A' stroke-width='4'/%3E%3Ctext x='32' y='44' font-family='Arial Black, sans-serif' font-size='30' font-weight='900' text-anchor='middle' fill='%2315171A'%3ESV%3C/text%3E%3C/svg%3E" />
-  <script>
-    // apply saved theme before first paint to avoid a flash
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light" || savedTheme === "dark") {
-      document.documentElement.dataset.theme = savedTheme;
-    }
-    // scroll reveals only hide content when there is JS around to reveal it again
-    document.documentElement.classList.add("js");
-  </script>
+  <meta name="theme-color" content="#f3f1eb" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171815'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='28' font-weight='800' letter-spacing='-1.5' text-anchor='middle' fill='%23fffdf8'%3ESV%3C/text%3E%3C/svg%3E" />
+
+  <script>document.documentElement.classList.add("js");</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=IBM+Plex+Sans:wght@400;500;600&family=Martian+Mono:wdth,wght@75..112.5,300..700&family=Noto+Sans+Devanagari:wght@700&family=Noto+Sans+Tamil:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <a class="skip-link" href="#top">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <a class="roundel" href="#top" aria-label="Back to top">
-      <span class="roundel-ring" aria-hidden="true"></span>
-      <span class="roundel-text">SV</span>
-    </a>
-    <nav class="line-nav" aria-label="Sections">
-      <a href="#engineering" data-line="blue"><span class="dot" aria-hidden="true"></span>Engineering</a>
-      <a href="#markets" data-line="amber"><span class="dot" aria-hidden="true"></span>Markets</a>
-      <a href="#travel" data-line="green"><span class="dot" aria-hidden="true"></span>Travel</a>
-      <a href="#story" data-line="magenta"><span class="dot" aria-hidden="true"></span>Story</a>
-      <a href="#contact" class="nav-contact">Contact</a>
-      <button class="theme-toggle" type="button" aria-label="Switch to night service">☾</button>
-    </nav>
+    <div class="shell">
+      <a class="brand" href="#main">
+        <span class="brand-mark" aria-hidden="true">SV</span>
+        <span class="brand-text">
+          <span class="brand-name">Srivathsan V.</span>
+          <span class="brand-role">Software engineer</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#career">Career</a>
+        <a href="#atlas" data-optional>Atlas</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="top">
+  <main id="main">
 
     <!-- ======================= HERO ======================= -->
     <section class="hero">
-      <p class="eyebrow load-reveal">Chennai · 13.08° N, 80.27° E · All lines operational</p>
+      <div class="shell">
+        <p class="section-label is-accent">Srivathsan Venkateswaran · Software engineer at SILQ</p>
 
-      <div class="signpost load-reveal" role="img" aria-label="Indian Railways style station name board reading Srivathsan Venkateswaran, software engineer, Chennai">
-        <div class="board">
-          <span class="board-tamil" lang="ta">ஸ்ரீவத்சன்</span>
-          <span class="board-hindi" lang="hi">श्रीवत्सन</span>
-          <span class="board-name">Srivathsan</span>
-          <span class="board-surname">Venkateswaran</span>
-          <span class="board-meta">Software Engineer · Elevation 6.7 m · Chennai</span>
-        </div>
-        <div class="board-legs" aria-hidden="true"><span></span><span></span></div>
-      </div>
+        <h1 class="hero-claim">
+          Thirteen products in seven weeks.
+          <em>Four of them run <span class="marker">someone else's business</span>.</em>
+        </h1>
 
-      <p class="hero-intro load-reveal">
-        I'm an engineer who ships his hobbies. By profession I build Android apps in Kotlin
-        and search &amp; data systems in Python. The rest of my life keeps turning into
-        software. A gym that ran on paper became a two-surface platform. Seven years in crypto
-        markets became a 98-chart quant dashboard. Years of criss-crossing India became two
-        transit apps. A stint running social media taught me how to tell the story once the
-        thing is built.
-      </p>
+        <p class="hero-intro">
+          Between 2 July and 19 August 2026 I shipped thirteen products across
+          1,765 commits. Not prototypes: four of them are open on somebody's
+          screen this morning.
+        </p>
+        <p class="hero-intro">
+          I build the software small businesses actually run on. A gym still
+          writing receipts by hand. A distributor whose money was locked inside
+          an ERP nobody could query. A consultancy with a good record and no way
+          to show it. Most of these started with somebody describing a problem
+          that was quietly costing them money every month.
+        </p>
+        <p class="hero-intro">
+          By day I write backend systems at SILQ, and spent three years before
+          that on Caterpillar's enterprise search platform. Everything below is
+          what I built after hours, with its real status attached: in use, just
+          built, or pitched to somebody who never wrote back.
+        </p>
 
-      <ul class="hero-links load-reveal">
-        <li><a href="https://github.com/srivathsanvenkateswaran" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/srivathsanvenkateswaran/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://srivathsan.hashnode.dev" target="_blank" rel="noopener">Blog</a></li>
-        <li><a href="mailto:srivathsanvenkateswaran@gmail.com">Email</a></li>
-      </ul>
-    </section>
-
-    <!-- platform-edge tactile paving: hero ends, concourse begins -->
-    <div class="tactile" aria-hidden="true"></div>
-
-    <!-- ======================= DEPARTURES ======================= -->
-    <section class="board-band" aria-label="Departures board: jump to a section">
-      <div class="departures observe">
-        <div class="departures-head">
-          <span class="departures-title">Departures</span>
-          <span class="departures-clock" id="ist-clock">--:--:-- IST</span>
-        </div>
-        <div class="departures-cols" aria-hidden="true">
-          <span>Line</span><span>Destination</span><span>Service since</span><span>Status</span>
-        </div>
-        <div class="departures-rows">
-          <button class="dep-row" data-target="#engineering" data-line="blue">
-            <span class="dep-line"><span class="dot" aria-hidden="true"></span>Blue</span>
-            <span class="dep-dest">Engineering</span>
-            <span class="dep-since">2022</span>
-            <span class="dep-status"><span class="pulse" aria-hidden="true"></span>Running</span>
-          </button>
-          <button class="dep-row" data-target="#markets" data-line="amber">
-            <span class="dep-line"><span class="dot" aria-hidden="true"></span>Amber</span>
-            <span class="dep-dest">Markets</span>
-            <span class="dep-since">2019</span>
-            <span class="dep-status"><span class="pulse" aria-hidden="true"></span>Compounding</span>
-          </button>
-          <button class="dep-row" data-target="#travel" data-line="green">
-            <span class="dep-line"><span class="dot" aria-hidden="true"></span>Green</span>
-            <span class="dep-dest">Across India</span>
-            <span class="dep-since">Always</span>
-            <span class="dep-status"><span class="pulse" aria-hidden="true"></span>Roaming</span>
-          </button>
-          <button class="dep-row" data-target="#story" data-line="magenta">
-            <span class="dep-line"><span class="dot" aria-hidden="true"></span>Magenta</span>
-            <span class="dep-dest">The Story Layer</span>
-            <span class="dep-since">2019 – 23</span>
-            <span class="dep-status dep-status-off">Off peak</span>
-          </button>
-        </div>
+        <div class="hero-actions" id="hero-actions"></div>
       </div>
     </section>
 
-    <div class="network">
-
-    <!-- ======================= BLUE LINE · ENGINEERING ======================= -->
-    <section class="line-section" id="engineering" data-line="blue">
-      <span class="rail" aria-hidden="true"><i></i></span>
-
-      <header class="station-head observe">
-        <span class="station-marker" aria-hidden="true"></span>
-        <p class="line-label">Blue Line</p>
-        <h2>Engineering</h2>
-        <p class="section-lede">
-          Four years building software that has to work at industrial scale.
-          An Android engineer at heart, writing Jetpack Compose since its earliest betas in 2021.
+    <!-- ======================= EVIDENCE ======================= -->
+    <section class="shell" aria-label="The numbers">
+      <div class="observe">
+        <dl class="stats panel" id="stat-row"></dl>
+        <p class="stats-foot">
+          Counted from git history and my own trip files, not estimated. The
+          seven weeks run from the first commit on Burrito to the last one on
+          Jelfort. The travel figures are recomputed from the parsed notes every
+          time this page is built.
         </p>
-      </header>
+      </div>
+    </section>
 
-      <article class="featured-card observe">
-        <p class="featured-label">Featured service · getsquadfit.com</p>
-        <h3><a href="https://getsquadfit.com" target="_blank" rel="noopener">SquadFit: the gym that ran on paper</a></h3>
-        <p class="featured-text">
-          Gyms in Dindigul track memberships in receipt books and attendance in signature
-          registers. SquadFit digitises both sides of the counter: owners run plans, payments
-          and QR check-in, members log workouts and race their squad each week. One backend,
-          two surfaces: an installable PWA and an Android app.
-        </p>
-        <ul class="chips featured-chips">
-          <li>Next.js 16</li><li>React 19</li><li>Drizzle</li><li>Neon Postgres</li><li>Expo</li><li>Better Auth</li>
-        </ul>
-        <p class="featured-links">
-          <a href="https://getsquadfit.com" target="_blank" rel="noopener">Live site ↗</a>
-        </p>
-      </article>
+    <!-- ======================= WORK ======================= -->
+    <section class="band" id="work">
+      <div class="shell">
+        <div class="section-head observe">
+          <p class="section-label">The work</p>
+          <h2>Everything I have shipped, and where it sits</h2>
+          <p class="lede">
+            Seventeen things, grouped by who they were for rather than what they
+            were made with. Open any card to see what it did and what it cost.
+          </p>
+        </div>
 
-      <div class="route observe">
-        <article class="stop">
-          <span class="stop-tick" aria-hidden="true"></span>
-          <div class="stop-bar">
-            <h3>Software Development Engineer 2 · SILQ</h3>
-            <span class="stop-flag">Current service</span>
+        <div id="groups"></div>
+
+        <noscript>
+          <div class="noscript">
+            <p><strong>This page draws itself with JavaScript.</strong> The short version:</p>
+            <ul>
+              <li><a href="https://getsquadfit.com">SquadFit</a>, a multi-tenant gym platform running in real gyms</li>
+              <li><a href="https://burrito-finance.vercel.app">Burrito</a>, 98 market charts recomputed daily at $0 a month</li>
+              <li><a href="https://one-rail.vercel.app">OneRail</a>, an Indian Railways atlas built from OpenStreetMap</li>
+              <li><a href="https://tarvo-five.vercel.app">Tarvo</a>, an apartment maintenance and book-keeping ledger</li>
+              <li><a href="https://github.com/srivathsanvenkateswaran">GitHub</a> ·
+                  <a href="https://www.linkedin.com/in/srivathsanvenkateswaran/">LinkedIn</a> ·
+                  <a href="mailto:srivathsanvenkateswaran@gmail.com">Email</a></li>
+            </ul>
           </div>
-          <p class="stop-when">March 2026 → Present</p>
-          <p class="stop-text">
-            Building technology that simplifies global trade: next-generation tooling
-            for factories and supply chains, making quality on the ground measurable
-            and comparable.
-          </p>
-        </article>
-        <article class="stop">
-          <span class="stop-tick" aria-hidden="true"></span>
-          <div class="stop-bar"><h3>Software Engineer 2 · Caterpillar Inc.</h3></div>
-          <p class="stop-when">May 2025 – March 2026 · Chennai</p>
-          <p class="stop-text">
-            Senior scope on the same search platform, and the last stop on a run that
-            started as a six-month internship three years earlier.
-          </p>
-        </article>
-        <article class="stop">
-          <span class="stop-tick" aria-hidden="true"></span>
-          <div class="stop-bar"><h3>Software Engineer 1 · Caterpillar Inc.</h3></div>
-          <p class="stop-when">July 2023 – April 2025 · Chennai</p>
-          <p class="stop-text">
-            Enterprise search for the company that builds the machines that build the
-            world. Worked on the search platform: Apache Solr, Lucidworks Fusion, and
-            NLP/ML pipelines that helped thousands of engineers and dealers find the
-            right part, document, or answer.
-          </p>
-        </article>
-        <article class="stop">
-          <span class="stop-tick" aria-hidden="true"></span>
-          <div class="stop-bar"><h3>Software Engineering Intern · Caterpillar Inc.</h3></div>
-          <p class="stop-when">January 2023 – June 2023 · Chennai</p>
-          <p class="stop-text">
-            Six months on the search platform team, overlapping the last semester of
-            college. It turned into the next three years.
-          </p>
-        </article>
-        <article class="stop">
-          <span class="stop-tick" aria-hidden="true"></span>
-          <div class="stop-bar"><h3>Intern · Zoho Corporation</h3></div>
-          <p class="stop-when">July 2022 · Chennai</p>
-          <p class="stop-text">
-            First stop on the line: a summer inside one of the few Indian companies
-            that builds its whole stack itself.
-          </p>
-        </article>
-        <article class="stop">
-          <span class="stop-tick stop-tick-origin" aria-hidden="true"></span>
-          <div class="stop-bar"><h3>B.E. · Thiagarajar College of Engineering</h3></div>
-          <p class="stop-when">2019 – 2023 · Madurai</p>
-          <p class="stop-text">
-            Where most of the 40 public repos began: Android apps, Discord bots, scrapers,
-            and a helpline IVRS for people without smartphones.
-          </p>
-        </article>
-      </div>
-
-      <div class="card-grid observe">
-        <article class="project-card">
-          <h3><a href="https://mastersmentor.srivathsanvenkateswaran.workers.dev/" target="_blank" rel="noopener">Masters Mentor</a></h3>
-          <p>
-            Client site for an admissions consultancy that gets Indian students into
-            Europe's top B-schools: 150+ admissions since 2018, 98% success rate,
-            ₹1.2 Cr in scholarships secured. Packages, case studies, and a free
-            profile-evaluation tool, built end to end.
-          </p>
-          <ul class="chips"><li>Client work</li><li>Web</li><li>Live ↗</li></ul>
-          <p class="interchange" data-line="magenta"><span class="dot" aria-hidden="true"></span>Interchange · Magenta Line</p>
-        </article>
-        <article class="project-card">
-          <h3><a href="https://vyasadithya.com" target="_blank" rel="noopener">Vyas Adithya</a></h3>
-          <p>
-            Personal mentorship platform for the man behind Masters Mentor, covering B-school
-            admissions, data-analytics careers, and investing, on a pay-what-you-believe
-            pricing model. Brand, copy, and site shipped as one piece.
-          </p>
-          <ul class="chips"><li>Client work</li><li>Web</li><li>Live ↗</li></ul>
-          <p class="interchange" data-line="magenta"><span class="dot" aria-hidden="true"></span>Interchange · Magenta Line</p>
-        </article>
-        <article class="project-card">
-          <h3><a href="https://github.com/srivathsanvenkateswaran/CryptoUIJetpackCompose" target="_blank" rel="noopener">CryptoUIJetpackCompose</a></h3>
-          <p>A cryptocurrency app UI toolkit built in Jetpack Compose, with 10★ on GitHub from Compose's early days.</p>
-          <ul class="chips"><li>Kotlin</li><li>Jetpack Compose</li></ul>
-          <p class="interchange" data-line="amber"><span class="dot" aria-hidden="true"></span>Interchange · Amber Line</p>
-        </article>
-        <article class="project-card">
-          <h3><a href="https://github.com/srivathsanvenkateswaran/Pokedex-Jetpack-Compose" target="_blank" rel="noopener">Pokedex Compose</a></h3>
-          <p>A Pokédex app in Jetpack Compose following MVVM, with clean architecture on a fun dataset.</p>
-          <ul class="chips"><li>Kotlin</li><li>MVVM</li><li>Retrofit</li></ul>
-        </article>
-        <article class="project-card">
-          <h3><a href="https://github.com/srivathsanvenkateswaran/linuxVisualSearch" target="_blank" rel="noopener">linuxVisualSearch</a></h3>
-          <p>Bing-style visual search brought to the Linux desktop with a Python script.</p>
-          <ul class="chips"><li>Python</li><li>Linux</li></ul>
-        </article>
-      </div>
-
-      <aside class="legend observe" aria-label="Skills">
-        <p class="legend-title">Network legend · what I work with</p>
-        <dl class="legend-groups">
-          <div><dt>Languages</dt><dd>Kotlin · Python · Java · C++ · TypeScript</dd></div>
-          <div><dt>Android</dt><dd>Jetpack Compose · MVVM · Coroutines · Retrofit · Expo</dd></div>
-          <div><dt>Search &amp; ML</dt><dd>Apache Solr · Lucidworks Fusion · NLP</dd></div>
-          <div><dt>Web</dt><dd>Next.js · React · Vite · Node · Flask</dd></div>
-          <div><dt>Data stores</dt><dd>Postgres · Drizzle ORM · SQLite</dd></div>
-          <div><dt>Data &amp; markets</dt><dd>pandas · on-chain data · quant charting</dd></div>
-        </dl>
-      </aside>
-    </section>
-
-    <!-- ======================= AMBER LINE · MARKETS ======================= -->
-    <section class="line-section" id="markets" data-line="amber">
-      <span class="rail" aria-hidden="true"><i></i></span>
-
-      <header class="station-head observe">
-        <span class="station-marker station-marker-interchange" aria-hidden="true"></span>
-        <p class="line-label">Amber Line</p>
-        <h2>Markets</h2>
-        <p class="section-lede">
-          Seven years in crypto, four in Indian equities, cycle-tested through at least two
-          winters. Eventually the spreadsheets weren't enough, so I built the tooling myself.
-        </p>
-      </header>
-
-      <article class="featured-card observe">
-        <p class="featured-label">Featured service · burrito-finance.vercel.app</p>
-        <h3><a href="https://github.com/srivathsanvenkateswaran/Burrito" target="_blank" rel="noopener">Burrito: every market, one tortilla</a></h3>
-        <p class="featured-text">
-          A self-updating quantitative market-analysis site: crypto risk, cycles, on-chain,
-          breadth, derivatives, and US macro. A personal clone of the paid analytics
-          platforms, built solo on entirely free data.
-        </p>
-        <ul class="featured-stats">
-          <li><span>Charts</span><strong>98</strong></li>
-          <li><span>Assets + macro</span><strong>27</strong></li>
-          <li><span>Cost to run</span><strong>$0</strong></li>
-          <li><span>Recompute</span><strong>Daily</strong></li>
-        </ul>
-        <p class="featured-links">
-          <a href="https://burrito-finance.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
-          <a href="https://github.com/srivathsanvenkateswaran/Burrito" target="_blank" rel="noopener">GitHub ↗</a>
-        </p>
-      </article>
-
-      <div class="card-grid observe">
-        <article class="project-card">
-          <h3><a href="https://github.com/srivathsanvenkateswaran/CryptoPortfolioManager" target="_blank" rel="noopener">CryptoPortfolioManager</a></h3>
-          <p>A CLI tool to track a crypto portfolio from the terminal: positions, prices, P&amp;L.</p>
-          <ul class="chips"><li>Python</li><li>CLI</li></ul>
-        </article>
-        <article class="project-card">
-          <h3><a href="https://github.com/srivathsanvenkateswaran/Crypto-Discord-Bot" target="_blank" rel="noopener">Crypto Discord Bot</a></h3>
-          <p>Live crypto rates in any fiat currency, delivered straight into Discord.</p>
-          <ul class="chips"><li>Python</li><li>Discord API</li></ul>
-        </article>
-        <article class="project-card">
-          <h3><a href="https://srivathsan.hashnode.dev" target="_blank" rel="noopener">Grokking Bitcoin</a></h3>
-          <p>Writing about the Bitcoin protocol and markets, one concept at a time, on the blog.</p>
-          <ul class="chips"><li>Writing</li><li>Bitcoin</li></ul>
-          <p class="interchange" data-line="magenta"><span class="dot" aria-hidden="true"></span>Interchange · Magenta Line</p>
-        </article>
+        </noscript>
       </div>
     </section>
 
-    <!-- ======================= GREEN LINE · TRAVEL ======================= -->
-    <section class="line-section" id="travel" data-line="green">
-      <span class="rail" aria-hidden="true"><i></i></span>
+    <!-- ======================= CAREER ======================= -->
+    <section class="band band-alt" id="career">
+      <div class="shell">
+        <div class="section-head observe">
+          <p class="section-label">The day job</p>
+          <h2>Where the day job has run</h2>
+          <p class="lede">
+            A six-month internship at Caterpillar turned into three years and two
+            promotions on their enterprise search platform. I left in March 2026
+            for SILQ. This is the whole run, including the part where I ran
+            social media before I could write code for a living.
+          </p>
+        </div>
+        <ol class="timeline observe" id="timeline"></ol>
+      </div>
+    </section>
 
-      <header class="station-head observe">
-        <span class="station-marker station-marker-interchange" aria-hidden="true"></span>
-        <p class="line-label">Green Line</p>
-        <h2>Across India</h2>
-        <p class="section-lede">
-          I've travelled a large part of this country by rail and metro, and the travel
-          turned into product research. The result: two transit apps built from the
-          frustration of scattered timetables and noisy booking sites.
-        </p>
-      </header>
+    <!-- ======================= ATLAS ======================= -->
+    <section class="band" id="atlas">
+      <div class="shell">
+        <div class="section-head observe">
+          <p class="section-label">Off the clock</p>
+          <h2>Two hundred and twenty-two days on the ground</h2>
+          <p class="lede">
+            Every dot is a place I actually went, sized by the number of days I
+            spent there, drawn from the notes I kept at the time and parsed by
+            TravelPort — which is itself one of the projects above.
+          </p>
+        </div>
 
-      <div class="marquee observe" aria-hidden="true">
-        <div class="marquee-track">
-          <span>Chennai ● Madurai ● Bengaluru ● Delhi ● Mumbai ● Kolkata ● Hyderabad ● Kochi ● Jaipur ● Varanasi ● Ahmedabad ● Pune ● </span><span>Chennai ● Madurai ● Bengaluru ● Delhi ● Mumbai ● Kolkata ● Hyderabad ● Kochi ● Jaipur ● Varanasi ● Ahmedabad ● Pune ● </span>
+        <div class="atlas observe">
+          <div>
+            <div class="atlas-controls" id="atlas-controls" role="group" aria-label="Filter the map by year"></div>
+            <figure class="atlas-figure">
+              <svg id="atlas-svg" role="img" aria-labelledby="atlas-title atlas-desc">
+                <title id="atlas-title">Map of India showing states and cities visited</title>
+                <desc id="atlas-desc">Nineteen states and union territories are filled. Forty-three cities are marked, sized by days spent. The full figures are listed beside the map.</desc>
+              </svg>
+              <figcaption>FIG. 01 · 45 trips, 2022 to 2026.</figcaption>
+            </figure>
+          </div>
+          <div class="atlas-side">
+            <dl class="atlas-stats" id="atlas-stats"></dl>
+            <div class="atlas-years" id="atlas-years"></div>
+            <p class="atlas-note">
+              State outlines and city coordinates come from TravelPort's own
+              baked geometry, projected here with the same Mercator constants.
+              No map library, no tile server, no request leaves this page.
+            </p>
+          </div>
         </div>
       </div>
-
-      <div class="card-grid two observe">
-        <article class="project-card tall">
-          <h3><a href="https://github.com/srivathsanvenkateswaran/OneMetro" target="_blank" rel="noopener">OneMetro: the pulse of urban India</a></h3>
-          <p>
-            An open-source gateway to India's rapid transit systems. A hybrid SVG engine
-            renders each city's network: real WGS84 geographic projection for Chennai, Pune
-            and Ahmedabad, custom schematic grids for Delhi and Mumbai. Sub-second loads,
-            zero runtime network calls, no tracking.
-          </p>
-          <ul class="chips"><li>JavaScript</li><li>SVG engine</li><li>Vite</li><li>6★</li></ul>
-        </article>
-        <article class="project-card tall">
-          <h3><a href="https://one-rail.vercel.app" target="_blank" rel="noopener">OneRail: find your train, without the noise</a></h3>
-          <p>
-            A search platform for Indian Railways' Southern zone: schedules, stops, coach
-            positions and route maps in one clean interface, instead of five different
-            tabs and a PDF.
-          </p>
-          <ul class="chips"><li>Web</li><li>Indian Railways</li><li>Live ↗</li></ul>
-        </article>
-      </div>
     </section>
 
-    <!-- ======================= MAGENTA LINE · STORY ======================= -->
-    <section class="line-section" id="story" data-line="magenta">
-      <span class="rail" aria-hidden="true"><i></i></span>
-
-      <header class="station-head observe">
-        <span class="station-marker station-marker-interchange" aria-hidden="true"></span>
-        <p class="line-label">Magenta Line</p>
-        <h2>The Story Layer</h2>
-        <p class="section-lede">
-          Before engineering paid the bills, social media did. Through college and my early
-          career I worked as a social media manager: content strategy, graphics, community,
-          and the discipline of publishing on schedule.
-        </p>
-      </header>
-
-      <div class="route observe">
-        <article class="stop">
-          <span class="stop-tick" aria-hidden="true"></span>
-          <div class="stop-bar"><h3>Social Media Manager</h3></div>
-          <p class="stop-when">2019 – 2023 · Freelance &amp; part-time</p>
-          <p class="stop-text">
-            Ran strategy, design and content calendars for pages and brands, learning
-            audience-building the hands-on way one post at a time.
+    <!-- ======================= CONTACT ======================= -->
+    <section class="band band-alt" id="contact">
+      <div class="shell">
+        <div class="section-head observe">
+          <p class="section-label">Get in touch</p>
+          <h2>What I am best at</h2>
+        </div>
+        <div class="observe">
+          <p class="contact-body">
+            I am best at the unglamorous end: the business that runs on paper,
+            the ledger nobody can query, the thing everyone works around. If that
+            is what you have, email me. It is the fastest way to reach me and I
+            answer.
           </p>
-        </article>
-        <article class="stop">
-          <span class="stop-tick" aria-hidden="true"></span>
-          <div class="stop-bar"><h3>Where it shows up now</h3></div>
-          <p class="stop-when">Every project above</p>
-          <p class="stop-text">
-            The media instinct never left: brand and copy for the two client sites now
-            running on the Blue Line, READMEs that read like launch pages, a blog on
-            <a href="https://srivathsan.hashnode.dev" target="_blank" rel="noopener">Hashnode</a>,
-            and Burrito shipped with its own launch film, written as HTML compositions and
-            rendered to video with code.
+          <div class="contact-actions" id="contact-actions"></div>
+          <p class="colophon">
+            Hand-written HTML, CSS and JavaScript. No framework, no build step,
+            no dependencies, no analytics. The map of India is drawn as SVG from
+            a data file in this repository, which is roughly how
+            <a href="https://github.com/srivathsanvenkateswaran/OneMetro">OneMetro</a>
+            works too.
           </p>
-        </article>
+        </div>
       </div>
-
-    </section>
-
-    </div><!-- /.network -->
-
-    <!-- ======================= TERMINUS · CONTACT ======================= -->
-    <section class="terminus" id="contact">
-      <div class="buffer" aria-hidden="true"><span></span><span></span></div>
-      <p class="line-label observe">Terminus · All lines</p>
-      <h2 class="observe">End of the line</h2>
-      <p class="terminus-lede observe">
-        Every good route ends at a station worth arriving at. If you'd like to build
-        something together (or just argue about Bitcoin), the doors are open.
-      </p>
-      <p class="observe">
-        <a class="cta" href="mailto:srivathsanvenkateswaran@gmail.com">Say hello →</a>
-      </p>
-      <ul class="footer-links observe">
-        <li><a href="https://github.com/srivathsanvenkateswaran" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/srivathsanvenkateswaran/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://www.instagram.com/_vathsan" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://srivathsan.hashnode.dev" target="_blank" rel="noopener">Blog</a></li>
-      </ul>
-      <p class="colophon observe">
-        © <span id="year">2026</span> Srivathsan Venkateswaran · Hand-built with plain
-        HTML, CSS and JavaScript · Hosted on Vercel
-      </p>
     </section>
 
   </main>
 
-  <script src="script.js"></script>
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-brand">
+        <span class="footer-mark" aria-hidden="true">SV</span>
+        <span class="footer-name">Srivathsan Venkateswaran</span>
+      </div>
+      <span class="footer-meta" id="footer-meta"></span>
+    </div>
+  </footer>
+
+  <script src="india.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="render.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

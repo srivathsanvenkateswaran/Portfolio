@@ -58,7 +58,7 @@
   /* ── Layout ────────────────────────────────────────────── */
   --page-max-width: 1200px;
   --page-pad:   clamp(1.25rem, 5vw, 2.5rem);
-  --section-gap: clamp(4rem, 9vw, 7rem);
+  --section-gap: clamp(3rem, 6vw, 4.5rem);
 
   /* ── Radius ────────────────────────────────────────────── */
   --radius-card:     10px;
@@ -131,6 +131,16 @@ svg { display: block; }
   text-decoration: none;
 }
 .skip-link:focus { left: 1rem; top: 1rem; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .shell {
   width: 100%;
@@ -345,7 +355,7 @@ svg { display: block; }
    ============================================================ */
 
 .hero {
-  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(2.5rem, 6vw, 4rem);
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(1.75rem, 3vw, 2.5rem);
 }
 .hero-claim {
   margin-top: 1.5rem;
@@ -365,7 +375,7 @@ svg { display: block; }
   );
 }
 .hero-intro {
-  margin-top: 2rem;
+  margin-top: 1.25rem;
   max-width: 62ch;
   font-size: var(--text-subheading);
   line-height: 1.68;
@@ -373,7 +383,7 @@ svg { display: block; }
 }
 .hero-intro + .hero-intro { margin-top: 1.1rem; }
 .hero-actions {
-  margin-top: 2.5rem;
+  margin-top: 1.75rem;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -383,26 +393,26 @@ svg { display: block; }
    Stats strip
    ============================================================ */
 
-/* Seven numbers. auto-fit gives six columns at full width and orphans the
-   seventh, so the count is pinned: 4 + 3 reads as a block, 6 + 1 does not. */
+/* Seven numbers on one line once there is room: as a tall 4x2 block they read
+   as another paragraph, which is the opposite of what numbers are here for. */
 .stats {
-  padding: clamp(1.5rem, 3vw, 2rem);
+  padding: clamp(1.1rem, 2vw, 1.4rem) clamp(1.25rem, 3vw, 1.75rem);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1.25rem, 3vw, 2rem);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
 }
-@media (min-width: 620px) { .stats { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 900px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 620px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1000px) { .stats { grid-template-columns: repeat(7, 1fr); } }
 .stat-n {
   font-family: var(--font-mono);
-  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
   font-weight: 500;
   letter-spacing: -0.05em;
   line-height: 1;
   color: var(--ink);
 }
 .stat-l {
-  margin-top: 8px;
+  margin-top: 5px;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -411,7 +421,8 @@ svg { display: block; }
   line-height: 1.5;
 }
 .stats-foot {
-  margin-top: 1.25rem;
+  margin-top: 0.85rem;
+  font-size: var(--text-caption);
   max-width: 70ch;
   font-size: var(--text-body-sm);
   color: var(--text-muted);
@@ -440,7 +451,7 @@ svg { display: block; }
    Work — project groups and cards
    ============================================================ */
 
-.group { margin-top: clamp(3rem, 6vw, 4.5rem); }
+.group { margin-top: clamp(2.5rem, 4.5vw, 3.5rem); }
 .group-head { max-width: 66ch; }
 .group-head h3 {
   margin-top: 0.85rem;
@@ -491,14 +502,44 @@ svg { display: block; }
 }
 .card-status {
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
+.card-status .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border-muted);
+}
 .card-status.is-live {
   color: var(--group-color, var(--accent-dark));
+}
+.card-status.is-live .dot { background: currentColor; }
+
+.group-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.group-count {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--canvas-deep);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+.group-count.is-live {
+  background: color-mix(in srgb, var(--group-color) 12%, transparent);
+  color: var(--group-color);
 }
 .card-outcome {
   font-size: var(--text-body-sm);

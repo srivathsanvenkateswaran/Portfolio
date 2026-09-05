@@ -52,24 +52,7 @@
           <em>Four of them run <span class="marker">someone else's business</span>.</em>
         </h1>
 
-        <p class="hero-intro">
-          Between 2 July and 19 August 2026 I shipped thirteen products across
-          1,765 commits. Not prototypes: four of them are open on somebody's
-          screen this morning.
-        </p>
-        <p class="hero-intro">
-          I build the software small businesses actually run on. A gym still
-          writing receipts by hand. A distributor whose money was locked inside
-          an ERP nobody could query. A consultancy with a good record and no way
-          to show it. Most of these started with somebody describing a problem
-          that was quietly costing them money every month.
-        </p>
-        <p class="hero-intro">
-          By day I write backend systems at SILQ, and spent three years before
-          that on Caterpillar's enterprise search platform. Everything below is
-          what I built after hours, with its real status attached: in use, just
-          built, or pitched to somebody who never wrote back.
-        </p>
+        <p class="hero-intro">Not prototypes. Open on somebody's screen this morning.</p>
 
         <div class="hero-actions" id="hero-actions"></div>
       </div>
@@ -79,26 +62,14 @@
     <section class="shell" aria-label="The numbers">
       <div class="observe">
         <dl class="stats panel" id="stat-row"></dl>
-        <p class="stats-foot">
-          Counted from git history and my own trip files, not estimated. The
-          seven weeks run from the first commit on Burrito to the last one on
-          Jelfort. The travel figures are recomputed from the parsed notes every
-          time this page is built.
-        </p>
+        <p class="stats-foot">2 July to 19 August 2026. Counted from git history and my own trip files, not estimated.</p>
       </div>
     </section>
 
     <!-- ======================= WORK ======================= -->
     <section class="band" id="work">
       <div class="shell">
-        <div class="section-head observe">
-          <p class="section-label">The work</p>
-          <h2>Everything I have shipped, and where it sits</h2>
-          <p class="lede">
-            Seventeen things, grouped by who they were for rather than what they
-            were made with. Open any card to see what it did and what it cost.
-          </p>
-        </div>
+        <h2 class="sr-only">Work</h2>
 
         <div id="groups"></div>
 
@@ -127,9 +98,8 @@
           <h2>Where the day job has run</h2>
           <p class="lede">
             A six-month internship at Caterpillar turned into three years and two
-            promotions on their enterprise search platform. I left in March 2026
-            for SILQ. This is the whole run, including the part where I ran
-            social media before I could write code for a living.
+            promotions on their enterprise search platform. I left for SILQ in
+            March 2026.
           </p>
         </div>
         <ol class="timeline observe" id="timeline"></ol>
@@ -143,9 +113,8 @@
           <p class="section-label">Off the clock</p>
           <h2>Two hundred and twenty-two days on the ground</h2>
           <p class="lede">
-            Every dot is a place I actually went, sized by the number of days I
-            spent there, drawn from the notes I kept at the time and parsed by
-            TravelPort — which is itself one of the projects above.
+            Every dot is a place I went, sized by days spent. Parsed from my own
+            trip notes by TravelPort, one of the projects above.
           </p>
         </div>
 
@@ -164,9 +133,9 @@
             <dl class="atlas-stats" id="atlas-stats"></dl>
             <div class="atlas-years" id="atlas-years"></div>
             <p class="atlas-note">
-              State outlines and city coordinates come from TravelPort's own
-              baked geometry, projected here with the same Mercator constants.
-              No map library, no tile server, no request leaves this page.
+              Projected from TravelPort's baked geometry with the same Mercator
+              constants. No map library, no tile server, no request leaves this
+              page.
             </p>
           </div>
         </div>
@@ -182,6 +151,19 @@
         </div>
         <div class="observe">
           <p class="contact-body">
+            I build the software small businesses actually run on. A gym still
+            writing receipts by hand. A distributor whose money was locked inside
+            an ERP nobody could query. A consultancy with a good record and no
+            way to show it. Most of these started with somebody describing a
+            problem that was quietly costing them money every month.
+          </p>
+          <p class="contact-body">
+            By day I write backend systems at SILQ, and spent three years before
+            that on Caterpillar's enterprise search platform. Everything above is
+            what I built after hours, with its real status attached: in use, just
+            built, or pitched to somebody who never wrote back.
+          </p>
+          <p class="contact-body">
             I am best at the unglamorous end: the business that runs on paper,
             the ledger nobody can query, the thing everyone works around. If that
             is what you have, email me. It is the fastest way to reach me and I
@@ -189,9 +171,12 @@
           </p>
           <div class="contact-actions" id="contact-actions"></div>
           <p class="colophon">
-            Hand-written HTML, CSS and JavaScript. No framework, no build step,
-            no dependencies, no analytics. The map of India is drawn as SVG from
-            a data file in this repository, which is roughly how
+            The seven weeks run from the first commit on Burrito to the last one
+            on Jelfort, and the travel figures are recomputed from the parsed
+            notes every time this page is built. Hand-written HTML, CSS and
+            JavaScript. No framework, no build step, no dependencies, no
+            analytics. The map of India is drawn as SVG from a data file in this
+            repository, which is roughly how
             <a href="https://github.com/srivathsanvenkateswaran/OneMetro">OneMetro</a>
             works too.
           </p>

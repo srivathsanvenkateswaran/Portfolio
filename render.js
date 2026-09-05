@@ -64,9 +64,19 @@
       const section = el("section", { class: "group observe" });
       section.style.setProperty("--group-color", GROUP_COLOR[g.id] || "var(--accent)");
 
+      /* The counts do work the prose used to: how many, and how many of them
+         somebody else is actually using. */
+      const inUse = projects.filter((p) => STATUS[p.status].isLive).length;
+
       section.appendChild(
         el("div", { class: "group-head" }, [
-          el("p", { class: "section-label", text: g.label }),
+          el("div", { class: "group-meta" }, [
+            el("p", { class: "section-label", text: g.label }),
+            el("span", { class: "group-count", text: projects.length + " projects" }),
+            /* "deployed", not "live": this counts running + live, and the hero
+               already claims a smaller number for what someone else is using. */
+            inUse ? el("span", { class: "group-count is-live", text: inUse + " deployed" }) : null,
+          ].filter(Boolean)),
           el("h3", { text: g.name }),
           el("p", { class: "lede", text: g.lede }),
         ])
@@ -94,8 +104,10 @@
         el("span", { class: "card-name", text: p.name }),
         el("span", {
           class: "card-status" + (status.isLive ? " is-live" : ""),
-          text: status.text,
-        }),
+        }, [
+          el("i", { class: "dot", "aria-hidden": "true" }),
+          el("span", { text: status.text }),
+        ]),
       ]),
       el("p", { class: "card-outcome", text: p.outcome }),
       el("div", { class: "chips" },
@@ -211,13 +223,13 @@
     /* Velocity first: it is the strongest number here and the easiest to check.
        See scripts/velocity.sh for how the two build figures are counted. */
     [
-      [13, "products in seven weeks"],
-      ["1,765", "commits, 2 Jul to 19 Aug 2026"],
-      [running, "in real use by someone else"],
-      [work.projects.length, "shipped in total"],
-      [st.days, "days on the road"],
+      [13, "products"],
+      ["1,765", "commits"],
+      [running, "in real use"],
+      [work.projects.length, "shipped"],
+      [st.days, "days travelled"],
       [st.cities, "cities"],
-      [st.states, "states and union territories"],
+      [st.states, "states & UTs"],
     ].forEach(([n, label]) => {
       host.appendChild(
         el("div", { class: "stat" }, [
